@@ -1,11 +1,57 @@
+@import './resets';
+@import './variables';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-$whatsapp-green: #4CB29C;
-$background-grey: #F3F3F3;
-$secondary-font: #A8A8A8;
-$primary-font: #343434;
-$message-green: #E1F6CB;
 
-
+@mixin mobile {
+    @media (max-width: $mobile){
+        @content;
+    }
+}
 body {
     font-family: 'Roboto', sans-serif;
+}
+.navLogo{
+    background-color: $whatsapp-green;
+    display: flex;
+    padding: 10px;
+}
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $background-grey;
+    padding: 15px;
+    border-radius: 20px;
+    max-width: 500px;
+
+
+    #{&}inputBox {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 10px 0;  
+    }
+
+    #{&}input{
+        border: none;
+        outline: none;
+        padding: 10px;
+    }
+    #{&}btnSubmit{
+        background-color: $whatsapp-green;
+        border: none;
+        max-width: 200px;
+        align-self: center;
+        padding: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        color: $secondary-font;
+        font-size: 1rem;
+    }
+    @include mobile{
+        max-width: 300px;
+    }
+}
+.linkSingUp{
+    color: primary-font;
 }
