@@ -18,6 +18,9 @@ main {
   width: 30%;
 }
 
+.conversations {
+  /*display: none;*/
+}
 .conversations .conversations-header {
   background-color: #EDEDED;
   height: 80px;
@@ -93,10 +96,65 @@ main {
 
 .profile {
   display: none;
+  background-color: #F6F6F6;
+  height: 100vh;
+  text-align: center;
+}
+.profile nav {
+  background-color: #EDEDED;
+  height: 80px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4CB29C;
+  color: white;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.profile .image {
+  background-image: url(../icons/person.svg), linear-gradient(90deg, rgb(79, 76, 76) 0%, rgb(79, 76, 76) 94%);
+  height: 200px;
+  width: 200px;
+  opacity: 50%;
+  border-radius: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px auto;
+  color: white;
+}
+.profile input {
+  display: none;
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px;
+  border: none;
+  width: 85%;
+}
+.profile .name {
+  background-color: white;
+  padding: 15px;
+}
+.profile .name h3 {
+  color: #4CB29C;
+  padding-bottom: 20px;
+  text-align: start;
+}
+.profile .name div {
+  display: flex;
+  justify-content: space-between;
+}
+.profile .name div p {
+  color: #343434;
+  font-size: 18px;
 }
 
 .messages {
   width: 70%;
+  display: flex;
 }
 .messages .main-messages {
   width: 100%;
@@ -236,4 +294,38 @@ main {
 }
 .messages .change-message {
   display: none;
+  width: 60%;
+  background-color: #F6F6F6;
+  height: 100vh;
+}
+.messages .change-message header {
+  padding: 15px;
+}
+.messages .change-message header div {
+  display: flex;
+  gap: 30px;
+  color: #343434;
+  padding-bottom: 20px;
+}
+.messages .change-message header nav {
+  display: flex;
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px 20px;
+  gap: 30px;
+}
+.messages .change-message header nav input {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+}
+.messages .change-message .chosen-messages {
+  background-color: white;
+  padding: 15px;
+}
+.messages .change-message .chosen-messages .chosen-message {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  color: #343434;
 }/*# sourceMappingURL=style.css.map */

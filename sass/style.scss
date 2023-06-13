@@ -72,6 +72,7 @@ main {
 }
 
 .conversations {
+    /*display: none;*/
     .conversations-header {
         @include bar();
         @include profile-picture();
@@ -125,10 +126,60 @@ main {
 
 .profile {
     display: none;
+    background-color: $background-grey;
+    height: 100vh;
+    text-align: center;
+    nav {
+        @include bar();
+        background-color: $whatsapp-green;
+        color: white;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+    .image {
+        background-image: url(../icons/person.svg), linear-gradient(90deg, rgba(79,76,76,1) 0%, rgba(79,76,76,1) 94%);
+        height: 200px;
+        width: 200px;
+        opacity: 50%;
+        border-radius: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 30px auto;
+        color: white;
+    }
+    input {
+        display: none;
+        background-color: white;
+        border-radius: 30px;
+        padding: 10px;
+        border: none;
+        width: 85%;
+    }
+    .name {
+        background-color: white;
+        padding: 15px;
+        h3 {
+            color: $whatsapp-green;
+            padding-bottom: 20px;
+            text-align: start;
+        }
+        div {
+            display: flex;
+            justify-content: space-between;
+            p {
+                color: $primary-font;
+                font-size: 18px;
+            }
+        }
+    }
 }
 
 .messages {
     width: 70%;
+    display: flex;
     .main-messages{
         width: 100%;
         .messages-header {
@@ -205,5 +256,40 @@ main {
     }
     .change-message {
         display: none;
+        width: 60%;
+        background-color: $background-grey;
+        height: 100vh;
+        header {
+            padding: 15px;
+            div {
+                display: flex;
+                gap: 30px;
+                color: $primary-font;
+                padding-bottom: 20px;
+            }
+            nav {
+                display: flex;
+                background-color: white;
+                border-radius: 30px;
+                padding: 10px 20px;
+                gap: 30px;
+                input {
+                    border: none;
+                    width: 100%;
+                    font-size: 16px;
+                }
+            }
+        }
+        .chosen-messages {
+            background-color: white;
+            padding: 15px;
+            .chosen-message {
+                display: flex;
+                gap: 5px;
+                padding: 10px;
+                color: $primary-font;
+
+            }
+        }
     }
 }

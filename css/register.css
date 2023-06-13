@@ -1,4 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Roboto", sans-serif;
+}
+
+.navLogo {
+  background-color: #4CB29C;
+  display: flex;
+  padding: 10px;
+}
+
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F3F3F3;
+  padding: 15px;
+  border-radius: 20px;
+  max-width: 500px;
+}
+#loginForm #loginForminputBox {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 10px 0;
+}
+#loginForm #loginForminput {
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+#loginForm #loginFormbtnSubmit {
+  background-color: #4CB29C;
+  border: none;
+  max-width: 200px;
+  align-self: center;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #A8A8A8;
+  font-size: 1rem;
+}
+@media (max-width: 700px) {
+  #loginForm {
+    max-width: 300px;
+  }
+}
+
+.linkSingUp {
+  color: primary-font;
 }/*# sourceMappingURL=register.css.map */

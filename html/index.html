@@ -62,19 +62,19 @@
                     <h3>Perfil</h3>
                 </nav>
                 <div class="image">
-                    <span>
+                    <figure>
                         <img src="../icons/camera.svg" alt="Icon for change image">
-                        Cambiar imagen
-                    </span>
-                    <input type="image" name="" id="">
+                    </figure>
+                    <p>Cambiar imagen</p>
                 </div>
+                <input type="url" name="" id="" placeholder="Coloca el url de tu foto">
                 <div class="name">
                     <h3>Tu nombre</h3>
                     <div>
                         <p>Juan</p>
                         <img src="../icons/edit-2.svg" alt="Icon for change name">
                     </div>
-                    <input type="text">
+                    <input type="text" placeholder="Coloca tu nombre">
                 </div>
             </section>
         </aside>
@@ -145,19 +145,16 @@
                         <img src="../icons/x.svg" alt="Icon for clear">
                     </nav>
                 </header>
-                <section>
-                    <div>
+                <section class="chosen-messages">
                         <p>Vistas</p>
-                        <div>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.7071 6.70711C21.0976 6.31658 21.0976 5.68342 20.7071 5.29289C20.3166 4.90237 19.6834 4.90237 19.2929 5.29289L9 15.5858L4.70711 11.2929C4.31658 10.9024 3.68342 10.9024 3.29289 11.2929C2.90237 11.6834 2.90237 12.3166 3.29289 12.7071L8.29289 17.7071C8.68342 18.0976 9.31658 18.0976 9.70711 17.7071L20.7071 6.70711Z" fill="black"/>
-                            </svg>
+                        <div class="chosen-message">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1.5 12.5L5.57574 16.5757C5.81005 16.8101 6.18995 16.8101 6.42426 16.5757L9 14" stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round"></path> <path d="M16 7L12 11" stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 12L11.5757 16.5757C11.8101 16.8101 12.1899 16.8101 12.4243 16.5757L22 7" stroke="#A8A8A8" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
                             <p>Claro que si, un momento</p>
                         </div>
-                    </div>
                 </section>
             </section>
         </section>
     </main>
+    <script src="../scripts/main.js" type="module"></script>
 </body>
 </html>
