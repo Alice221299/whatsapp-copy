@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
     <title>Login</title>
 </head>
 <body>
     <head>
-        <nav>
-            <img src="https://cdn.vectorstock.com/i/1000x1000/28/31/send-message-icon-vector-25322831.webp" alt="Logo message">
-            <h1>Message</h1>
+        <nav class="navLogo">
+            <img src="../icons/whatsapp-svgrepo-com.svg" height="25px" alt="Logo WhatsApp">
+            <h1 class="navLogo__WA">WhatsApp</h1>
         </nav>
     </head>
-    <body>
-        
-    </body>
+    <main>
+        <section class="mainSection">
+            <form id="loginForm">
+                <label class="inputBox">
+                    <samp class="inputSpam">Phone number</samp>
+                    <input type="number" class="input">
+                </label>
+                <label class="inputBox">
+                    <samp class="inputSpam">Password</samp>
+                    <input type="password"class="input">
+                </label>
+                <button type="submit" class="btnSubmit">Log In</button>
+            </form>
+            <a href="./register.html" class="linkSingUp">Sing up for free</a>
+        </section>
+    </main>
     <footer></footer>
     <script src="../scripts/login.js"></script>
 </body>

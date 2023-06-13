@@ -1,4 +1,72 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Roboto", sans-serif;
+}
+
+.navLogo {
+  background-color: #4CB29C;
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+}
+.navLogo .navLogo__WA {
+  color: white;
+}
+
+.mainSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem;
+}
+
+#singUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F3F3F3;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 500px;
+}
+#singUpForm h2 {
+  color: #4CB29C;
+  margin: 5px;
+}
+#singUpForm .inputBox {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+#singUpForm .inputSpam {
+  color: #343434;
+}
+#singUpForm .input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+#singUpForm .btnSubmit {
+  background-color: #4CB29C;
+  border: none;
+  max-width: 200px;
+  align-self: center;
+  padding: 7px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+}
+@media (max-width: 700px) {
+  #singUpForm {
+    max-width: 300px;
+  }
 }/*# sourceMappingURL=register.css.map */

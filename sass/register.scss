@@ -12,46 +12,58 @@ body {
 }
 .navLogo{
     background-color: $whatsapp-green;
-    display: flex;
+    display: flex; 
     padding: 10px;
+    gap: 10px;   
+    .navLogo__WA {
+       color: white;
+    }
 }
-
-#loginForm{
+.mainSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem;    
+}
+#singUpForm{
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: $background-grey;
-    padding: 15px;
+    padding: 30px;
     border-radius: 20px;
     max-width: 500px;
-
-
-    #{&}inputBox {
+    h2{
+        color: $whatsapp-green;
+        margin: 5px;
+    }
+    .inputBox {
         display: flex;
         flex-direction: column;
-        margin: 0 0 10px 0;  
+        margin: 10px;  
     }
-
-    #{&}input{
+    .inputSpam{
+        color: $primary-font;
+    }
+    .input{
         border: none;
         outline: none;
-        padding: 10px;
+        padding: 5px;
+        margin-top: 5px;
+        border-radius: 5px;
     }
-    #{&}btnSubmit{
+    .btnSubmit{
         background-color: $whatsapp-green;
         border: none;
         max-width: 200px;
         align-self: center;
-        padding: 15px;
-        border-radius: 5px;
+        padding: 7px 15px;
+        border-radius: 10px;
         cursor: pointer;
-        color: $secondary-font;
+        color: white;
         font-size: 1rem;
     }
     @include mobile{
         max-width: 300px;
     }
-}
-.linkSingUp{
-    color: primary-font;
 }
