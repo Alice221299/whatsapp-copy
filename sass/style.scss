@@ -63,6 +63,10 @@ body {
     padding: 0;
 }
 
+.inactive {
+    display: none;
+}
+
 main {
     display: flex;
 }
@@ -72,10 +76,12 @@ main {
 }
 
 .conversations {
-    /*display: none;*/
     .conversations-header {
         @include bar();
         @include profile-picture();
+        .profile-picture {
+            cursor: pointer;
+        }
     }
     nav {
         background-color: $background-grey;
@@ -125,12 +131,12 @@ main {
 }
 
 .profile {
-    display: none;
     background-color: $background-grey;
     height: 100vh;
     text-align: center;
     nav {
         @include bar();
+        cursor: pointer;
         background-color: $whatsapp-green;
         color: white;
         justify-content: flex-start;
@@ -177,6 +183,14 @@ main {
     }
 }
 
+#open-search-module {
+    cursor: pointer;
+}
+
+#close-search-module {
+    cursor: pointer;
+}
+
 .messages {
     width: 70%;
     display: flex;
@@ -184,6 +198,7 @@ main {
         width: 100%;
         .messages-header {
             @include bar();
+            padding: 15px 30px;
             border-left: 1px solid $primary-font;
             .messages-header-info {
                 @include profile-picture();
@@ -255,7 +270,6 @@ main {
         }
     }
     .change-message {
-        display: none;
         width: 60%;
         background-color: $background-grey;
         height: 100vh;
