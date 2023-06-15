@@ -7,10 +7,16 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  position: relative;
+}
+
+header {
+  height: 800px;
 }
 
 .navLogo {
   background-color: #4CB29C;
+  height: 800px;
   display: flex;
   padding: 10px;
   gap: 10px;
@@ -21,6 +27,7 @@ body {
 
 .mainSection {
   display: flex;
+  margin: 0 3rem 3rem 3rem;
   flex-direction: column;
   align-items: center;
   margin: 3rem;
@@ -33,7 +40,9 @@ body {
   background-color: #F3F3F3;
   padding: 30px;
   border-radius: 20px;
-  max-width: 500px;
+  width: 700px;
+  position: absolute;
+  top: 5rem;
 }
 #singUpForm h2 {
   color: #4CB29C;
@@ -67,6 +76,6 @@ body {
 }
 @media (max-width: 700px) {
   #singUpForm {
-    max-width: 300px;
+    max-width: 500px;
   }
 }/*# sourceMappingURL=register.css.map */

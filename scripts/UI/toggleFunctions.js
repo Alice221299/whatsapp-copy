@@ -11,3 +11,9 @@ export const closeBlock = (clickedEl, closingEl, previousEl) => {
         previousEl.classList.remove('inactive')
 })
 }
+
+export const toggleMenu = (clickedEl, openingEl) => {
+    clickedEl.addEventListener('click', () => {
+        openingEl.classList.toggle('inactive');
+})
+}

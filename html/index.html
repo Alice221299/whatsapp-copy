@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>WhatsApp</title>
 </head>
 <body>
@@ -67,14 +69,22 @@
                     </figure>
                     <p>Cambiar imagen</p>
                 </div>
-                <input type="url" name="" id="" placeholder="Coloca el url de tu foto">
+                <form class="image-input inactive">
+                    <input type="url" name="" id="" placeholder="Coloca el url de tu foto" >
+                    <button type="submit"><img src="../icons/send.svg" alt="Icon for send"></button>
+                </form>
+                
                 <div class="name">
                     <h3>Tu nombre</h3>
                     <div>
                         <p>Juan</p>
-                        <img src="../icons/edit-2.svg" alt="Icon for change name">
+                        <img src="../icons/edit-2.svg" alt="Icon for change name" class="change-name">
                     </div>
-                    <input type="text" placeholder="Coloca tu nombre">
+                    <form class="name-input inactive">
+                        <input type="text" placeholder="Coloca tu nombre" >
+                        <button type="submit"><img src="../icons/send.svg" alt="Icon for send"></button>
+                    </form>
+                    
                 </div>
             </section>
         </aside>
@@ -95,14 +105,26 @@
                 <section class="messages-chat">
                     <p class="message-date">Viernes</p>
                     <div class="message-received">
-                        <img src="../icons/triangle-down.svg" alt="">
+                        <img src="../icons/triangle-down.svg" alt="" class="triangle received">
+                        <img src="../icons/options-vertical.svg" alt="Icon for options" class="message-options">
+                        <div class="options-container inactive">
+                            <p>Edit</p>
+                            <textarea name="" id="" cols="10" rows="10" class="inactive"></textarea>
+                            <p>Delete</p>
+                        </div>
                         <p>Hola, como estas?</p>
                         <span>09:27 am</span>
                     </div>
                     <div class="message-sent">
-                        <img src="../icons/triangle-down-green.svg" alt="">
+                        <img src="../icons/triangle-down-green.svg" alt="" class="triangle sent">
+                        <img src="../icons/options-vertical.svg" alt="Icon for options" class="message-options">
+                        <div class="options-container inactive">
+                            <p>Edit</p>
+                            <textarea name="" id="" cols="10" rows="10" class="inactive"></textarea>
+                            <p>Delete</p>
+                        </div>
                         <p>Hola, bien y tu?</p>
-                        <div>
+                        <div class="message-date-sent">
                             <span>09:37 am</span>
                             <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1.5 12.5L5.57574 16.5757C5.81005 16.8101 6.18995 16.8101 6.42426 16.5757L9 14" stroke="#2EA3F2" stroke-width="1.5" stroke-linecap="round"></path> <path d="M16 7L12 11" stroke="#2EA3F2" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 12L11.5757 16.5757C11.8101 16.8101 12.1899 16.8101 12.4243 16.5757L22 7" stroke="#2EA3F2" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
                         </div>
@@ -110,14 +132,26 @@
                     </div>
                     <p class="message-date">Sabado</p>
                     <div class="message-received">
-                        <img src="../icons/triangle-down.svg" alt="">
+                        <img src="../icons/triangle-down.svg" alt="" class="triangle received">
+                        <img src="../icons/options-vertical.svg" alt="Icon for options" class="message-options">
+                        <div class="options-container inactive">
+                            <p>Edit</p>
+                            <textarea name="" id="" cols="10" rows="10" class="inactive"></textarea>
+                            <p>Delete</p>
+                        </div>
                         <p>Me puedes mandar el documento porfa?</p>
                         <span>3:12 pm</span>
                     </div>
                     <div class="message-sent">
-                        <img src="../icons/triangle-down-green.svg" alt="">
+                        <img src="../icons/triangle-down-green.svg" alt="" class="triangle sent">
+                        <img src="../icons/options-vertical.svg" alt="Icon for options" class="message-options">
+                        <div class="options-container inactive">
+                            <p>Edit</p>
+                            <textarea name="" id="" cols="10" rows="10" class="inactive"></textarea>
+                            <p>Delete</p>
+                        </div>
                         <p>Claro que si, un momento</p>
-                        <div>
+                        <div class="message-date-sent">
                             <span>3:32 pm</span>
                             <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1.5 12.5L5.57574 16.5757C5.81005 16.8101 6.18995 16.8101 6.42426 16.5757L9 14" stroke="#2EA3F2" stroke-width="1.5" stroke-linecap="round"></path> <path d="M16 7L12 11" stroke="#2EA3F2" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 12L11.5757 16.5757C11.8101 16.8101 12.1899 16.8101 12.4243 16.5757L22 7" stroke="#2EA3F2" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
                         </div>

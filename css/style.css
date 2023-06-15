@@ -61,6 +61,9 @@ main {
   width: 100%;
   font-size: 16px;
 }
+.conversations .conversations-container {
+  overflow-y: scroll;
+}
 .conversations .conversations-container .chat {
   background-color: white;
   height: 75px;
@@ -129,14 +132,23 @@ main {
   gap: 10px;
   margin: 30px auto;
   color: white;
+  cursor: pointer;
+}
+.profile .image-input button {
+  cursor: pointer;
+  border: none;
+  background-color: #4CB29C;
+  border-radius: 50%;
+  padding: 8px 8px 3px;
+  margin: 0 0 0 5px;
 }
 .profile input {
-  display: none;
   background-color: white;
   border-radius: 30px;
   padding: 10px;
-  border: none;
-  width: 85%;
+  border: 1px solid #343434;
+  width: 75%;
+  margin-bottom: 10px;
 }
 .profile .name {
   background-color: white;
@@ -154,6 +166,20 @@ main {
 .profile .name div p {
   color: #343434;
   font-size: 18px;
+}
+.profile .name div .change-name {
+  cursor: pointer;
+}
+.profile .name .name-input {
+  margin-top: 10px;
+}
+.profile .name .name-input button {
+  cursor: pointer;
+  border: none;
+  background-color: #4CB29C;
+  border-radius: 50%;
+  padding: 8px 8px 3px;
+  margin: 0 0 0 5px;
 }
 
 #open-search-module {
@@ -216,6 +242,7 @@ main {
   gap: 20px;
   padding: 20px 0;
   color: #343434;
+  overflow-y: scroll;
 }
 .messages .main-messages .messages-chat .message-date {
   background-color: #E4F2FB;
@@ -246,12 +273,33 @@ main {
   color: #A8A8A8;
   font-size: 10px;
 }
-.messages .main-messages .messages-chat .message-received img {
+.messages .main-messages .messages-chat .message-received .triangle {
   position: absolute;
 }
-.messages .main-messages .messages-chat .message-received img {
+.messages .main-messages .messages-chat .message-received .message-options {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.messages .main-messages .messages-chat .message-received .options-container {
+  position: absolute;
+  top: 0;
+  background-color: white;
+  color: #343434;
+  border: 1px solid #343434;
+  border-radius: 5px;
+}
+.messages .main-messages .messages-chat .message-received .options-container p {
+  padding: 10px;
+  border-bottom: 1px solid #343434;
+}
+.messages .main-messages .messages-chat .message-received .triangle, .messages .main-messages .messages-chat .message-received .received {
   top: -15px;
   left: -20px;
+}
+.messages .main-messages .messages-chat .message-received .options-container {
+  right: -72px;
 }
 .messages .main-messages .messages-chat .message-sent {
   padding: 10px;
@@ -277,14 +325,35 @@ main {
   color: #A8A8A8;
   font-size: 10px;
 }
-.messages .main-messages .messages-chat .message-sent img {
+.messages .main-messages .messages-chat .message-sent .triangle {
   position: absolute;
 }
-.messages .main-messages .messages-chat .message-sent img {
+.messages .main-messages .messages-chat .message-sent .message-options {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.messages .main-messages .messages-chat .message-sent .options-container {
+  position: absolute;
+  top: 0;
+  background-color: white;
+  color: #343434;
+  border: 1px solid #343434;
+  border-radius: 5px;
+}
+.messages .main-messages .messages-chat .message-sent .options-container p {
+  padding: 10px;
+  border-bottom: 1px solid #343434;
+}
+.messages .main-messages .messages-chat .message-sent .triangle, .messages .main-messages .messages-chat .message-sent .sent {
   top: -15px;
   right: -20px;
 }
-.messages .main-messages .messages-chat .message-sent div {
+.messages .main-messages .messages-chat .message-sent .options-container {
+  right: 15px;
+}
+.messages .main-messages .messages-chat .message-sent .message-date-sent {
   display: flex;
   align-self: flex-end;
 }
