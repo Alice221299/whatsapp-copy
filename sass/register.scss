@@ -49,6 +49,8 @@ header{
         display: flex;
         flex-direction: column;
         margin: 10px;  
+        color: $primary-font;
+        font-size: medium;  
     }
     .inputSpam{
         color: $primary-font;

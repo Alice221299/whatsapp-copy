@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/register.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>register</title>
 </head>
 <body>
@@ -17,31 +18,21 @@
         <section class="mainSection">
             <form id="singUpForm">
                 <h2>Create an account</h2>
-                <label class="inputBox">
-                    <samp class="inputSpam">Name</samp>
-                    <input type="text" class="input">
-                </label>
-                <label class="inputBox">
-                    <samp class="inputSpam">Phone number</samp>
-                    <input type="number" class="input">
-                </label>
-                <label class="inputBox">
-                    <samp class="inputSpam">Password</samp>
-                    <input type="password"class="input">
-                </label>
-                <label class="inputBox">
-                    <samp class="inputSpam">Profile picture</samp>
-                    <input type="url" class="input">
-                </label>
-                <label class="inputBox">
-                    <samp class="inputSpam">About</samp>
-                    <textarea name="" id="" cols="20" rows="5" class="input"></textarea>
-                </label>
+                <label for="singUpUserName" class="inputBox">Name</label>
+                <input type="text" class="input" placeholder="E.g: Sophia" id="singUpUserName">
+                <label for="singUpUserPhone" class="inputBox">Phone number</label>
+                <input type="number" class="input" placeholder="E.g: 3111111111" id="singUpUserPhone">
+                <label for="singUpUserPassword" class="inputBox">Password</label>
+                <input type="password"class="input" placeholder="****" id="singUpUserPassword">
+                <label for="singUpUserPicture" class="inputBox">Profile picture</label>
+                <input type="url" class="input" placeholder="E.g: https://images.unsplash.com/photo" id="singUpUserPicture">
+                <label for="singUpUserAbout" class="inputBox">About</label>
+                <textarea name="" id="singUpUserAbout" cols="20" rows="5" class="input" placeholder="E.g: Available / Busy / At the movies"></textarea>
                 <button type="submit" class="btnSubmit">Sing up</button>
             </form>
         </section>
     </main>
     <footer></footer>
-    <script src="../scripts/registrer.js"></script>
+    <script src="../scripts/registrer.js" type="module"></script>
 </body>
 </html>

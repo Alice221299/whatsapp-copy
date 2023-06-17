@@ -15,6 +15,7 @@ const inputNewName = document.querySelector('.name-input')
 import {openBlock} from "./UI/toggleFunctions.js"
 import {closeBlock} from "./UI/toggleFunctions.js"
 import {toggleMenu} from "./UI/toggleFunctions.js"
+import { URL_users } from "./login.js";
 
 openBlock(openProfile, profile, conversations)
 closeBlock(closeProfile, profile, conversations)

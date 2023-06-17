@@ -12,7 +12,7 @@ body {
     position: relative;
 }
 header{
-    height: 800px;
+    height: 200px;
 }
 .navLogo{
     background-color: $whatsapp-green;
@@ -44,13 +44,17 @@ header{
     width: 700px;
     position: absolute;
     top: 5rem;
+    box-shadow: 0px 0px 61px 0px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
     .inputBox {
         display: flex;
         flex-direction: column;
-        margin: 10px;  
+        margin: 10px; 
+        color: $primary-font;
+        font-size: medium;  
     }
     .inputSpam{
         color: $primary-font;
+        font-size: medium;         
     }
     .input{
         border: none;
@@ -58,6 +62,7 @@ header{
         padding: 5px;
         margin-top: 5px;
         border-radius: 5px;
+
     }
     .btnSubmit{
         background-color: $whatsapp-green;

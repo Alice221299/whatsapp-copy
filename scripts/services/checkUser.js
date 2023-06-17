@@ -1,7 +1,7 @@
 const validarUsuario = (event) => {
     event.preventDefault();
 
-    const userPhone = document.getElementById("LoginUserName").value;
+    const userPhone = document.getElementById("LoginUserPhone").value;
     const userPassword = document.getElementById("LoginPassword").value;
 
     let activeUser = null;
