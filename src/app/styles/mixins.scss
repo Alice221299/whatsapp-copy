@@ -1,0 +1,80 @@
+@mixin mobile {
+    @media (max-width: 600px){
+        @content;
+    }
+}
+
+@mixin profile-picture {
+    .profile-picture {
+        height: 50px;
+        width: 50px;
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+}
+
+@mixin message {
+        padding: 10px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        max-width: 70%;
+        width: fit-content;
+        gap: 3px;
+        margin: 0 20px;
+        position: relative;
+        p {
+            align-self: flex-start;
+            padding-right: 20px;
+        }
+        span {
+            align-self: flex-end;
+            color: $secondary-font;
+            font-size: 10px;
+        }
+        .triangle {
+            position: absolute;
+        }
+        .message-options {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+        .options-container {
+            position: absolute;
+            top: 0;
+            background-color: white;
+            color: $primary-font;
+            border: 1px solid $primary-font;
+            border-radius: 5px;
+            p {
+                padding: 10px;
+                border-bottom: 1px solid $primary-font;;
+            }
+        }
+    }
+
+@mixin bar {
+    background-color: $background-grey-darker;
+    height: 80px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin submit-button {
+    button {
+        cursor: pointer;
+        border: none;
+        background-color: $whatsapp-green;
+        border-radius: 50%;
+        padding: 8px 8px 3px;
+        margin: 0 0 0 5px;
+    }
+}

@@ -1,0 +1,15 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import './mixins.scss';
+@import './reset.scss';
+@import './login.scss';
+@import './register.scss';
+@import './main-page.scss';
+
+#login {
+    display: none;
+}
+
+#register {
+    display: none;
+}
