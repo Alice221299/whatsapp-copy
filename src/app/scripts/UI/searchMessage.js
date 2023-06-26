@@ -1,9 +1,9 @@
-import { getUsers } from "../services/getUsers.js";
-import { printUsers } from "./printUsers.js";
+import { getMessages } from "../services/getMessages.js";
+import { printMessages } from "./printMessages.js"; 
 const URL_users = "https://back-whatsapp.onrender.com/";
-const conversationsContainer = document.querySelector('.conversations-container');
+const searcMessagesContainer = document.querySelector('.chosen-message');
 
-export const searchFunction = (input) => {
+export const searchMessages = (input) => {
     input.addEventListener('input', async (e) => {
         const value = e.target.value.toLowerCase();
         if (value) {

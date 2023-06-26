@@ -1,8 +1,15 @@
+import { getMessages } from "../services/getMessages.js";
+import { printMessages } from "./printMessages.js";
+import { getOneUser } from "../services/getOneUser.js";
+const URL = "https://back-whatsapp.onrender.com/";
+const messagesContainer = document.querySelector('.messages-chat');
+const chosenUserInfoContainer = document.querySelector('.messages-header-info')
+
 export const printUsers = (array, container) => {
     container.innerHTML = '';
     array.forEach((user) => {
         container.innerHTML += `
-        <div class="chat" id="${user.id}">
+        <div class="chat" data-id="${user.id}">
             <figure class="profile-picture">
                 <img src="${user.profilePicture}" alt="${user.name}">
             </figure>
@@ -17,3 +24,30 @@ export const printUsers = (array, container) => {
                 </div>
             </div>
         </div>  `  })}
+
+export const showClickedUserChat = () => {
+    document.addEventListener('click', async (e) => {
+        if (e.target.classList.contains('chat')) {
+            let id = e.target.getAttribute('data-id');
+            e.target.setAttribute('id', 'chat-chosen')
+            const messages = await getMessages(URL, id);
+            printMessages(messages, messagesContainer);
+            const chosenUser = await getOneUser(URL, id);
+            console.log(chosenUser);
+            printChosenUserInfo(chosenUser, chosenUserInfoContainer)
+        }
+    })
+}
+
+export const printChosenUserInfo = (user, container) => {
+    container.innerHTML = '';
+    container.innerHTML += `
+    <figure class="profile-picture">
+        <img src="${user.profilePicture}" alt="${user.name}">
+    </figure>
+    <div>
+        <h3>${user.name}</h3>
+        <p>En línea</p>
+    </div>
+    `
+}

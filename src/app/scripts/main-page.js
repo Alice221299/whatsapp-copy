@@ -23,7 +23,8 @@ import {closeBlock} from "./UI/toggleFunctions.js"
 import {toggleMenu} from "./UI/toggleFunctions.js"
 import { getUsers } from "./services/getUsers.js"
 import { printUsers } from "./UI/printUsers.js"
-import { searchFunction } from "./UI/search.js";
+import { searchFunction } from "./UI/search.js"
+import { showClickedUserChat } from "./UI/printUsers.js";
 
 openBlock(openProfile, profile, conversations)
 closeBlock(closeProfile, profile, conversations)
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     users = await getUsers(URL_users);
     console.log(users);
     printUsers (users, conversationsContainer);
+    showClickedUserChat()
 })
 
 searchFunction(searchConversation)

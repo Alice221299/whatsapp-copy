@@ -74,8 +74,12 @@ main {
                 }
             }
         }
-        .chat-chosen {
+        #chat-chosen {
             background-color: $background-grey-darker;
+        }
+        .chat:hover {
+            background-color: $background-grey;
+            cursor: pointer;
         }
     }
 }
@@ -141,6 +145,22 @@ main {
         .name-input {
             margin-top: 10px;
             @include submit-button();
+        }
+    }
+    .profile--log-out {
+        display: flex;
+        padding: 15px 30px;
+        gap: 15px;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        width: 30%;
+        height: 10%;
+        color: $primary-font;
+        svg {
+            width: 30px;
         }
     }
 }
