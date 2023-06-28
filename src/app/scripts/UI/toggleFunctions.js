@@ -11,7 +11,7 @@ export const closeBlock = (clickedEl, closingEl, previousEl = null) => {
     clickedEl.addEventListener('click', () => {
         closingEl.classList.add('inactive');
         if (previousEl) {
-            previousEl.classList.add('inactive')
+            previousEl.classList.remove('inactive')
         }
 })
 }

@@ -1,4 +1,5 @@
 import { getUsers } from './services/getUsers.js';
+import Swal from 'sweetalert2'
 //import { URL_users } from './services/data.js'
 
 const URL_users = "https://back-whatsapp.onrender.com/";
@@ -33,11 +34,13 @@ const loginFormSubmit = async (event) => {
  
     document.getElementById('main-page').style.display = 'block';
 
-    document.getElementById('loginForm').style.display = 'none';
-    
+
+    document.getElementById('login').style.display = 'none';
+
     const userId = user.id;
     localStorage.setItem('userId', userId);
   });
 };
 
 formLogin.addEventListener('submit', loginFormSubmit);
+

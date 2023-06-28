@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 const URL_users_post = "https://back-whatsapp.onrender.com/users";
 
 const singUpForm = document.getElementById('singUpForm');
