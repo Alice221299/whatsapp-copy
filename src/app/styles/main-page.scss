@@ -173,6 +173,16 @@ main {
     cursor: pointer;
 }
 
+.no-messages {
+    text-align: center;
+    margin: 20px 30%;
+    border: 2px solid $secondary-font;
+    color: $secondary-font;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: rgba(218, 216, 217, 0.3);
+}
+
 .messages {
     width: 70%;
     display: flex;

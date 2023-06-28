@@ -1,9 +1,10 @@
 import { DateTime } from "luxon";
 
-export const printMessages = (object, container) => {
+export const printMessages = (array, container) => {
+    if (array.length > 0) {
     container.innerHTML = '';
-    object.messages.forEach((item) => {
-        if (object.idUser1 === item.sentBy) {
+    array[0].messages.forEach((item) => {
+        if (array[0].idSender === item.sentBy) {
         container.innerHTML += `
         <div class="message-received">
             <svg class="triangle received" width="40px" height="40px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000">
@@ -20,7 +21,7 @@ export const printMessages = (object, container) => {
                 <p class="delete">Delete</p>
             </div>
             <p>${item.message}</p>
-            <span>${item.hour}</span>
+            <span>${item.time}</span>
         </div>
         `  }
         else {
@@ -41,7 +42,7 @@ export const printMessages = (object, container) => {
                 </div>
                 <p>${item.message}</p>
                 <div class="message-date-sent">
-                    <span>${item.hour}</span>
+                    <span>${item.time}</span>
                     <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1.5 12.5L5.57574 16.5757C5.81005 16.8101 6.18995 16.8101 6.42426 16.5757L9 14" stroke="#2EA3F2" stroke-width="1.5" stroke-linecap="round"></path> <path d="M16 7L12 11" stroke="#2EA3F2" stroke-width="1.5" stroke-linecap="round"></path> <path d="M7 12L11.5757 16.5757C11.8101 16.8101 12.1899 16.8101 12.4243 16.5757L22 7" stroke="#2EA3F2" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
             </div>
             `
@@ -49,6 +50,14 @@ export const printMessages = (object, container) => {
     })
 
 openOptions()
+    }
+else {
+    container.innerHTML = `
+    <div class="no-messages">
+        <p>You don't have a chat with this user yet. Start by typing the message.</p>
+    </div>
+    `
+}
 }
 
 

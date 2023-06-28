@@ -28,11 +28,14 @@ export const printUsers = (array, container) => {
 export const showClickedUserChat = () => {
     document.addEventListener('click', async (e) => {
         if (e.target.classList.contains('chat')) {
-            let id = e.target.getAttribute('data-id');
-            e.target.setAttribute('id', 'chat-chosen')
-            const messages = await getMessages(URL, id);
+            let idContact = e.target.getAttribute('data-id');
+            localStorage.setItem('idContact', idContact);
+            const idLog = localStorage.getItem('userId');
+            //e.target.setAttribute('id', 'chat-chosen')
+            const messages = await getMessages(URL, idLog, idContact);
+            console.log(messages);
             printMessages(messages, messagesContainer);
-            const chosenUser = await getOneUser(URL, id);
+            const chosenUser = await getOneUser(URL, idContact);
             console.log(chosenUser);
             printChosenUserInfo(chosenUser, chosenUserInfoContainer)
         }

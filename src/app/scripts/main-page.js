@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const openProfile = document.querySelector('.profile-picture');
 const profile = document.querySelector('.profile');
 const closeProfile = document.getElementById('close-profile');
@@ -7,7 +5,6 @@ const conversations = document.querySelector('.conversations');
 const openSearch = document.getElementById('open-search-module');
 const search = document.querySelector('.change-message');
 const closeSearch = document.getElementById('close-search-module');
-const openOptionsContainer = document.querySelector('.options-container');
 const changeImage = document.querySelector('.image');
 const inputNewImage = document.querySelector('.image-input');
 const changeName = document.querySelector('.change-name');
@@ -53,3 +50,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 })
 
 searchFunction(searchConversation)
+
+
+
+

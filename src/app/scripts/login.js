@@ -34,7 +34,9 @@ const loginFormSubmit = async (event) => {
  
     document.getElementById('main-page').style.display = 'block';
 
+
     document.getElementById('login').style.display = 'none';
+
     const userId = user.id;
     localStorage.setItem('userId', userId);
   });
@@ -42,10 +44,3 @@ const loginFormSubmit = async (event) => {
 
 formLogin.addEventListener('submit', loginFormSubmit);
 
-
-
-// const userId = localStorage.getItem('userId');
-// const userConversations = db.conversations.filter(
-//   (conversation) =>
-//     conversation.idUser1 == userId 
-// );
