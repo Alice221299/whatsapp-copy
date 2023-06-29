@@ -59,5 +59,25 @@ searchFunction(searchConversation)
 searchMessages(searchMessageInput)
 
 editImage(formImage)
-
 editName(formName)
+
+
+document.querySelector('.profile--log-out').addEventListener('click', () => {
+    Swal.fire({
+      title: 'Log Out',
+      text: 'Are you sure you want to sign out?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.getElementById('main-page').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'block';
+
+        localStorage.removeItem('userId');        
+      }
+    });
+  });
+  
+
