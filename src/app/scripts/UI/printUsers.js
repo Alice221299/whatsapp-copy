@@ -33,7 +33,7 @@ export const showClickedUserChat = () => {
             const idLog = localStorage.getItem('userId');
             //e.target.setAttribute('id', 'chat-chosen')
             const messages = await getMessages(URL, idLog, idContact);
-            console.log(messages);
+            console.log("Messages:", messages);
             printMessages(messages, messagesContainer);
             const chosenUser = await getOneUser(URL, idContact);
             console.log(chosenUser);

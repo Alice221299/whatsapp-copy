@@ -305,9 +305,18 @@ main {
             padding: 15px;
             .chosen-message {
                 display: flex;
-                gap: 5px;
-                padding: 10px;
-                color: $primary-font;
+                flex-direction: column;
+                div {
+                    display: flex;
+                    gap: 5px;
+                    padding: 20px 10px;
+                    color: $primary-font;
+                    border-bottom: 1px solid $background-grey-darker;
+                    p {
+                        max-width: 330px;
+                    }
+                }
+                
 
             }
         }

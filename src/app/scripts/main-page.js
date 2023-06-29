@@ -14,7 +14,10 @@ let users = [];
 const conversationsContainer = document.querySelector('.conversations-container');
 const searchConversation = document.querySelector('.search-input');
 const enteredUserFigure = document.querySelector('.profile-picture');
-const enteredUserName = document.querySelector('.user-name')
+const enteredUserName = document.querySelector('.user-name');
+const searchMessageInput = document.getElementById('search-message-input');
+const formImage = document.querySelector('.image-input');
+const formName = document.querySelector('.name-input');
 
 import {openBlock} from "./UI/toggleFunctions.js"
 import {closeBlock} from "./UI/toggleFunctions.js"
@@ -26,6 +29,8 @@ import { showClickedUserChat } from "./UI/printUsers.js"
 import { getOneUser } from "./services/getOneUser.js"
 import { printUserPicture } from "./UI/enteredUser.js"
 import { printUserName } from "./UI/enteredUser.js"
+import { searchMessages } from "./UI/searchMessage.js"
+import { editImage, editName } from "./UI/editUser.js";
 
 
 openBlock(openProfile, profile, conversations)
@@ -51,6 +56,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 searchFunction(searchConversation)
 
+searchMessages(searchMessageInput)
 
+editImage(formImage)
 
-
+editName(formName)

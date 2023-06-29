@@ -1,25 +1,24 @@
 import { getMessages } from "../services/getMessages.js";
-import { printMessages } from "./printMessages.js"; 
-const URL_users = "https://back-whatsapp.onrender.com/";
+import { printSearchedMessages } from "./printSearchedMessages.js";
+const URL = "https://back-whatsapp.onrender.com/";
 const searcMessagesContainer = document.querySelector('.chosen-message');
 
 export const searchMessages = (input) => {
     input.addEventListener('input', async (e) => {
         const value = e.target.value.toLowerCase();
         if (value) {
-            let users = await getUsers(URL_users)
-            users.forEach(user => {
-            let isVisible = user.name.toLowerCase().includes(value)
-            if (!isVisible) {
-                let chat = document.getElementById(`${user.id}`)
-                console.log(chat);
-                chat.style.display = 'none';
-            }
-        });
+            const idContact = localStorage.getItem('idContact');
+            const idLog = localStorage.getItem('userId');
+            const messageListArray = await getMessages(URL, idLog, idContact);
+            const messageList = messageListArray[0].messages
+            const filter = messageList.filter((messageObj) =>
+                messageObj.message.toLowerCase().includes(value)
+                );
+            printSearchedMessages(filter, searcMessagesContainer);
         }
         else {
-            let users = await getUsers(URL_users);
-            printUsers (users, conversationsContainer);
+            searcMessagesContainer.innerHTML = ""
+            
         }
     })
 }
