@@ -18,6 +18,8 @@ const enteredUserName = document.querySelector('.user-name');
 const searchMessageInput = document.getElementById('search-message-input');
 const formImage = document.querySelector('.image-input');
 const formName = document.querySelector('.name-input');
+const formMessage = document.querySelector('.write-message');
+const messagesContainer = document.querySelector('.messages-chat');
 
 import {openBlock} from "./UI/toggleFunctions.js"
 import {closeBlock} from "./UI/toggleFunctions.js"
@@ -31,6 +33,9 @@ import { printUserPicture } from "./UI/enteredUser.js"
 import { printUserName } from "./UI/enteredUser.js"
 import { searchMessages } from "./UI/searchMessage.js"
 import { editImage, editName } from "./UI/editUser.js";
+import { sendMessage } from "./UI/sendMessage.js";
+import { getMessages } from "./services/getMessages.js";
+import { printMessages } from "./UI/printMessages.js";
 
 
 openBlock(openProfile, profile, conversations)
@@ -61,6 +66,15 @@ searchMessages(searchMessageInput)
 editImage(formImage)
 editName(formName)
 
+formMessage.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    await sendMessage();
+    const idContact = localStorage.getItem('idContact');
+    const idLog = localStorage.getItem('userId');
+    const messages = await getMessages(URL_users, idLog, idContact);
+    printMessages(messages, messagesContainer);
+    //location.reload()
+})
 
 document.querySelector('.profile--log-out').addEventListener('click', () => {
     Swal.fire({

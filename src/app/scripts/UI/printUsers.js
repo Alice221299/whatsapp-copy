@@ -50,7 +50,7 @@ export const printChosenUserInfo = (user, container) => {
     </figure>
     <div>
         <h3>${user.name}</h3>
-        <p>En línea</p>
+        <p>${user.online ? 'EN LINEA' : 'DESCONECTADO'}</p>
     </div>
     `
 }

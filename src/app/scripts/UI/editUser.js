@@ -1,5 +1,5 @@
 import { patchUser } from "../services/patchUser.js";
-const URL_users = "https://back-whatsapp.onrender.com/";
+const URL_users = "https://back-whatsapp.onrender.com/users";
 
 export const editImage = async (form) => {
     form.addEventListener("submit", async (e) => {

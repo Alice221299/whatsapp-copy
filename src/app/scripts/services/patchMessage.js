@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const postMessage = async (url, newMessage) => {
+export const patchMessage = async (url, newMessage) => {
   try {
-    const response = await axios.post(url, newMessage);
+    const response = await axios.patch(url, newMessage);
     return response;
   } catch (error) {
     console.log(error);
