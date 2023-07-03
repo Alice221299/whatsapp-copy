@@ -4,14 +4,11 @@
 @import './reset.scss';
 
 
-#login {
+
     body {
         font-family: 'Roboto', sans-serif;
         position: relative;
     }
-    // header{
-    //     height: 800px;
-    // }
     main{
         display: flex;
         justify-content: center;
@@ -35,10 +32,7 @@
         flex-direction: column;
         align-items: center;
         margin: 0 3rem 3rem 3rem;
-        .linkSingUp{
-            color: $whatsapp-green;
-            padding: 10px;
-        }
+        
     }
     #loginForm{
         display: flex;
@@ -91,6 +85,9 @@
             margin-top: 1rem;
             font-size: 20px;
         }
+        .linkSingUp{
+            color: $whatsapp-green;
+            padding: 10px;
+        }
     }
     
-}

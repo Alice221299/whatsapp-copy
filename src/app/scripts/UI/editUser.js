@@ -24,3 +24,5 @@ export const editImage = async (form) => {
         patchUser(URL_users, userId, editedInfo)
     });
   }
+
+  

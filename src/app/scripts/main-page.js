@@ -14,6 +14,7 @@ import { getMessages } from "./services/getMessages.js";
 import { printMessages } from "./UI/printMessages.js";
 import { postNewConversation } from "./UI/postNewConversation.js";
 import { editMessage } from "./UI/editMessage.js";
+import { showLogin } from './login.js';
 
 
 openBlock(openProfile, profile, conversations)
@@ -76,7 +77,7 @@ formMessage.addEventListener('submit', async (e) => {
 //     }})
 
 
-document.querySelector('.profile--log-out').addEventListener('click', () => {
+document.querySelector('.profileLogOut').addEventListener('click', () => {
     Swal.fire({
       title: 'Log Out',
       text: 'Are you sure you want to sign out?',
@@ -86,12 +87,45 @@ document.querySelector('.profile--log-out').addEventListener('click', () => {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        document.getElementById('main-page').style.display = 'none';
-        document.getElementById('loginForm').style.display = 'block';
+        // document.getElementById('main-page').style.display = 'none';
+        
+        // document.getElementById('loginForm').style.display = 'block';
 
-        localStorage.removeItem('userId');        
+        localStorage.removeItem('userId');  
+        
+        showLogin();
       }
     });
   });
+
+
+const login = document.getElementById('login');
+const register = document.getElementById('register');
+const mainPage = document.getElementById('mainPage');
+
+export const showMainPage = () => {
+  //localStorage.removeItem('currentView', 'login');
+  //localStorage.removeItem('currentView', 'register');
+  localStorage.setItem('currentView', 'mainPage');
+  login.classList.add('inactive');
+  register.classList.add('inactive');
+  mainPage.classList.remove('inactive');
+}
+//____________
+
+// const deleteOneMessage = Document.querySelector('.delete');
+// import { deleteMessage } from '../services/deleteMessage';
+
+// deleteOneMessage.addEventListener('click', async (e) => {
+//   e.preventDefault()
+
+//   /////No la he definido const idMessage = localStorage.getItem('idMessage');
+//   await deleteMessage(id);
+
   
+//   // const idLog = localStorage.getItem('userId');
+//   // const messages = await getMessages(URL_users, idLog, idContact);
+//   // printMessages(messages, messagesContainer);
+//   //location.reload()
+// })
 
