@@ -15,6 +15,7 @@ import { printMessages } from "./UI/printMessages.js";
 import { postNewConversation } from "./UI/postNewConversation.js";
 import { editMessage } from "./UI/editMessage.js";
 import { showLogin } from './login.js';
+import Swal from 'sweetalert2'
 
 
 openBlock(openProfile, profile, conversations)
@@ -33,9 +34,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     printUsers (users, conversationsContainer);
     showClickedUserChat();
     const userId = localStorage.getItem('userId');
-    let user = await getOneUser(URL_users, userId);
-    printUserPicture(user, enteredUserFigure);
-    printUserName(user, enteredUserName)
+if (userId) {
+  const user = await getOneUser(URL_users, userId);
+  printUserPicture(user, enteredUserFigure);
+  printUserName(user, enteredUserName)
+}
 })
 
 searchFunction(searchConversation)
@@ -61,20 +64,20 @@ formMessage.addEventListener('submit', async (e) => {
     formMessage.reset();
 })
 
-// document.addEventListener('click', async (e) => {
-//     if (e.target.classList.contains("edit")) {
-//     const idMessage = e.target.getAttribute("edit-id");
-//     const inputEdit = document.querySelector(`.edit-${idMessage}`);
-//     inputEdit.classList.toggle('inactive');
-//     inputEdit.addEventListener('submit', async (event)=> {
-//         event.preventDefault()
-//         await editMessage(idMessage)
-//         const idContact = localStorage.getItem('idContact');
-//         const idLog = localStorage.getItem('userId');
-//         const messages = await getMessages(URL_users, idLog, idContact);
-//         printMessages(messages, messagesContainer);
-//     })
-//     }})
+document.addEventListener('click', async (e) => {
+    if (e.target.classList.contains("edit")) {
+    const idMessage = e.target.getAttribute("edit-id");
+    const inputEdit = document.querySelector(`.edit-${idMessage}`);
+    inputEdit.classList.toggle('inactive');
+    inputEdit.addEventListener('submit', async (event)=> {
+        event.preventDefault()
+        await editMessage(idMessage)
+        const idContact = localStorage.getItem('idContact');
+        const idLog = localStorage.getItem('userId');
+        const messages = await getMessages(URL_users, idLog, idContact);
+        printMessages(messages, messagesContainer);
+    })
+    }})
 
 
 document.querySelector('.profileLogOut').addEventListener('click', () => {

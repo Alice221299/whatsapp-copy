@@ -5,7 +5,7 @@ import { URL_users } from "./data-variables.js";
 export const editMessage = async (idMessage) => {
     const idContact = localStorage.getItem('idContact');
     const idLog = parseInt(localStorage.getItem('userId'));
-    const messageListArray = await getMessages(URL, idLog, idContact);
+    const messageListArray = await getMessages(URL_users, idLog, idContact);
     
         const messageList = messageListArray[0].messages
         const messageToEdit = messageList.find(message => message.id === idMessage)
