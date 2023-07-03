@@ -162,8 +162,12 @@ main {
         width: 30%;
         height: 10%;
         color: $primary-font;
+        cursor: pointer;
         svg {
             width: 30px;
+        }
+        .profileLogOut:hover {
+            font-weight: bold;
         }
     }
 }
