@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2'
+
 const openProfile = document.querySelector('.profile-picture');
 const profile = document.querySelector('.profile');
 const closeProfile = document.getElementById('close-profile');
@@ -52,8 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 searchFunction(searchConversation)
 
 
-
-document.querySelector('.profile--log-out').addEventListener('click', () => {
+document.querySelector('.profileLogOut').addEventListener('click', () => {
     Swal.fire({
       title: 'Log Out',
       text: 'Are you sure you want to sign out?',
@@ -64,12 +65,29 @@ document.querySelector('.profile--log-out').addEventListener('click', () => {
     }).then((result) => {
       if (result.isConfirmed) {
         document.getElementById('main-page').style.display = 'none';
+        
         document.getElementById('loginForm').style.display = 'block';
 
         localStorage.removeItem('userId');        
       }
     });
   });
-  
 
+// const login = document.querySelector('.login');
+// const register = document.querySelector('.register');
+// const mainPage = document.querySelector('.mainPage');
+
+const login = document.getElementById('login');
+const register = document.getElementById('register');
+const mainPage = document.getElementById('mainPage');
+
+export const showMainPage = () => {
+  //localStorage.removeItem('currentView', 'login');
+  //localStorage.removeItem('currentView', 'register');
+  localStorage.setItem('currentView', 'mainPage');
+  login.classList.add('inactive');
+  register.classList.add('inactive');
+  mainPage.classList.add('active');
+  location.reload()
+}
 

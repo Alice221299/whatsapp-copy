@@ -1,5 +1,6 @@
 import { getUsers } from './services/getUsers.js';
 import Swal from 'sweetalert2'
+import { showMainPage } from './main-page.js';
 //import { URL_users } from './services/data.js'
 
 const URL_users = "https://back-whatsapp.onrender.com/";
@@ -31,16 +32,33 @@ const loginFormSubmit = async (event) => {
   }
 
   Swal.fire('Bienvenido', `Bienvenido ${user.name}`, 'success').then(() => {
- 
-    document.getElementById('main-page').style.display = 'block';
-
-
-    document.getElementById('login').style.display = 'none';
-
+    
+    // document.getElementById('main-page').style.display = 'block';
+    // document.getElementById('login').style.display = 'none';
     const userId = user.id;
     localStorage.setItem('userId', userId);
+    // localStorage.setItem('currentView', 'login');
+    showMainPage();
+    //colocar el parch
   });
 };
 
 formLogin.addEventListener('submit', loginFormSubmit);
+
+
+
+const login = document.getElementById('login');
+const register = document.getElementById('register');
+const mainPage = document.getElementById('mainPage');
+
+
+export const showLogin = () => {
+  localStorage.setItem('currentView', 'login');
+  //localStorage.removeItem('currentView', 'register');
+  //localStorage.removeItem('currentView', 'mainPage');
+  login.classList.add('active');
+  register.classList.add('inactive');
+  mainPage.classList.add('inactive');
+}
+
 

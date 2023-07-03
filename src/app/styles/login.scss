@@ -4,14 +4,11 @@
 @import './reset.scss';
 
 
-#login {
+
     body {
         font-family: 'Roboto', sans-serif;
         position: relative;
     }
-    // header{
-    //     height: 800px;
-    // }
     main{
         display: flex;
         justify-content: center;
@@ -93,4 +90,3 @@
         }
     }
     
-}

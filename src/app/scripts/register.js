@@ -39,3 +39,21 @@ const SignUpFormSubmit = async (event) => {
 }
 
 singUpForm.addEventListener('submit', SignUpFormSubmit);
+
+
+
+const login = document.getElementById('login');
+const register = document.getElementById('register');
+const mainPage = document.getElementById('mainPage');
+
+export const showRegister = () => {
+  //localStorage.removeItem('currentView', 'login');
+  localStorage.setItem('currentView', 'register');
+  //localStorage.removeItem('currentView', 'mainPage');
+  login.classList.add('inactive');
+  register.classList.add('active');
+  mainPage.classList.add('inactive');
+  location.reload();
+}
+
+
