@@ -1,41 +1,19 @@
-const openProfile = document.querySelector('.profile-picture');
-const profile = document.querySelector('.profile');
-const closeProfile = document.getElementById('close-profile');
-const conversations = document.querySelector('.conversations');
-const openSearch = document.getElementById('open-search-module');
-const search = document.querySelector('.change-message');
-const closeSearch = document.getElementById('close-search-module');
-const changeImage = document.querySelector('.image');
-const inputNewImage = document.querySelector('.image-input');
-const changeName = document.querySelector('.change-name');
-const inputNewName = document.querySelector('.name-input');
-const URL_users = "https://back-whatsapp.onrender.com/";
 let users = [];
-const conversationsContainer = document.querySelector('.conversations-container');
-const searchConversation = document.querySelector('.search-input');
-const enteredUserFigure = document.querySelector('.profile-picture');
-const enteredUserName = document.querySelector('.user-name');
-const searchMessageInput = document.getElementById('search-message-input');
-const formImage = document.querySelector('.image-input');
-const formName = document.querySelector('.name-input');
-const formMessage = document.querySelector('.write-message');
-const messagesContainer = document.querySelector('.messages-chat');
+import { openProfile, profile, closeProfile, conversations, openSearch, search, closeSearch, changeImage, inputNewImage, changeName, inputNewName, URL_users, conversationsContainer, searchConversation, enteredUserFigure, enteredUserName, searchMessageInput, formImage, formName, formMessage, messagesContainer } from "./UI/data-variables.js";
 
-import {openBlock} from "./UI/toggleFunctions.js"
-import {closeBlock} from "./UI/toggleFunctions.js"
-import {toggleMenu} from "./UI/toggleFunctions.js"
+import {openBlock, closeBlock, toggleMenu} from "./UI/toggleFunctions.js"
 import { getUsers } from "./services/getUsers.js"
-import { printUsers } from "./UI/printUsers.js"
+import { printUsers, showClickedUserChat } from "./UI/printUsers.js"
 import { searchFunction } from "./UI/search.js"
-import { showClickedUserChat } from "./UI/printUsers.js"
 import { getOneUser } from "./services/getOneUser.js"
-import { printUserPicture } from "./UI/enteredUser.js"
-import { printUserName } from "./UI/enteredUser.js"
+import { printUserPicture, printUserName } from "./UI/enteredUser.js"
 import { searchMessages } from "./UI/searchMessage.js"
 import { editImage, editName } from "./UI/editUser.js";
 import { sendMessage } from "./UI/sendMessage.js";
 import { getMessages } from "./services/getMessages.js";
 import { printMessages } from "./UI/printMessages.js";
+import { postNewConversation } from "./UI/postNewConversation.js";
+import { editMessage } from "./UI/editMessage.js";
 
 
 openBlock(openProfile, profile, conversations)
@@ -68,13 +46,35 @@ editName(formName)
 
 formMessage.addEventListener('submit', async (e) => {
     e.preventDefault()
-    await sendMessage();
     const idContact = localStorage.getItem('idContact');
     const idLog = localStorage.getItem('userId');
     const messages = await getMessages(URL_users, idLog, idContact);
-    printMessages(messages, messagesContainer);
-    //location.reload()
+    if (messages.length > 0) {
+        await sendMessage();
+    }
+    else {
+        await postNewConversation()
+    }
+    const messages2 = await getMessages(URL_users, idLog, idContact);
+    printMessages(messages2, messagesContainer);
+    formMessage.reset();
 })
+
+// document.addEventListener('click', async (e) => {
+//     if (e.target.classList.contains("edit")) {
+//     const idMessage = e.target.getAttribute("edit-id");
+//     const inputEdit = document.querySelector(`.edit-${idMessage}`);
+//     inputEdit.classList.toggle('inactive');
+//     inputEdit.addEventListener('submit', async (event)=> {
+//         event.preventDefault()
+//         await editMessage(idMessage)
+//         const idContact = localStorage.getItem('idContact');
+//         const idLog = localStorage.getItem('userId');
+//         const messages = await getMessages(URL_users, idLog, idContact);
+//         printMessages(messages, messagesContainer);
+//     })
+//     }})
+
 
 document.querySelector('.profile--log-out').addEventListener('click', () => {
     Swal.fire({

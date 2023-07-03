@@ -1,7 +1,6 @@
 import { getMessages } from "../services/getMessages.js";
 import { printSearchedMessages } from "./printSearchedMessages.js";
-const URL = "https://back-whatsapp.onrender.com/";
-const searcMessagesContainer = document.querySelector('.chosen-message');
+import { URL_users, searcMessagesContainer } from "./data-variables.js";
 
 export const searchMessages = (input) => {
     input.addEventListener('input', async (e) => {
@@ -9,7 +8,7 @@ export const searchMessages = (input) => {
         if (value) {
             const idContact = localStorage.getItem('idContact');
             const idLog = localStorage.getItem('userId');
-            const messageListArray = await getMessages(URL, idLog, idContact);
+            const messageListArray = await getMessages(URL_users, idLog, idContact);
             const messageList = messageListArray[0].messages
             const filter = messageList.filter((messageObj) =>
                 messageObj.message.toLowerCase().includes(value)

@@ -77,4 +77,8 @@
         padding: 8px 8px 3px;
         margin: 0 0 0 5px;
     }
+    button:hover {
+        box-shadow:  12px 12px 15px #5a5a5a,
+        -12px -12px 15px #ffffff;
+    }
 }

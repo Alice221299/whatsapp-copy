@@ -1,7 +1,6 @@
 import { getUsers } from "../services/getUsers.js";
 import { printUsers } from "./printUsers.js";
-const URL_users = "https://back-whatsapp.onrender.com/";
-const conversationsContainer = document.querySelector('.conversations-container');
+import { URL_users, conversationsContainer } from "./data-variables.js";
 
 export const searchFunction = (input) => {
     input.addEventListener('input', async (e) => {

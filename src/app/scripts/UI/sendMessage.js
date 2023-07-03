@@ -1,20 +1,17 @@
 import { getMessages } from "../services/getMessages.js";
 import { patchMessage } from "../services/patchMessage.js";
 import { DateTime } from "luxon";
-const URL = "https://back-whatsapp.onrender.com/";
+import { URL_users } from "./data-variables.js";
 
 export const sendMessage = async () => {
     const messageInput = document.getElementById('message-input')
 
     const idContact = localStorage.getItem('idContact');
     const idLog = parseInt(localStorage.getItem('userId'));
-    const messageListArray = await getMessages(URL, idLog, idContact);
-    console.log("Conversation:", messageListArray);
+    const messageListArray = await getMessages(URL_users, idLog, idContact);
     const messageList = messageListArray[0].messages
-    console.log(messageList);
     const idConversation = messageListArray[0].id
-    console.log(idConversation);
-    const url_messages = `${URL}conversations/${idConversation}`
+    const url_messages = `${URL_users}conversations/${idConversation}`
     
     const idMessage = messageList.length + 1;
 
@@ -32,7 +29,6 @@ export const sendMessage = async () => {
       id: idConversation,
       messages: messageList,
     };
-    console.log("newArrayMessages", messageListArray);
 
     await patchMessage(url_messages, payload)
 }
