@@ -33,7 +33,7 @@ export const showClickedUserChat = () => {
             const idLog = localStorage.getItem('userId');
             //e.target.setAttribute('id', 'chat-chosen')
             const messages = await getMessages(URL, idLog, idContact);
-            console.log(messages);
+            console.log("Messages:", messages);
             printMessages(messages, messagesContainer);
             const chosenUser = await getOneUser(URL, idContact);
             console.log(chosenUser);
@@ -50,7 +50,7 @@ export const printChosenUserInfo = (user, container) => {
     </figure>
     <div>
         <h3>${user.name}</h3>
-        <p>En línea</p>
+        <p>${user.online ? 'EN LINEA' : 'DESCONECTADO'}</p>
     </div>
     `
 }

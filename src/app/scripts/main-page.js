@@ -16,7 +16,12 @@ let users = [];
 const conversationsContainer = document.querySelector('.conversations-container');
 const searchConversation = document.querySelector('.search-input');
 const enteredUserFigure = document.querySelector('.profile-picture');
-const enteredUserName = document.querySelector('.user-name')
+const enteredUserName = document.querySelector('.user-name');
+const searchMessageInput = document.getElementById('search-message-input');
+const formImage = document.querySelector('.image-input');
+const formName = document.querySelector('.name-input');
+const formMessage = document.querySelector('.write-message');
+const messagesContainer = document.querySelector('.messages-chat');
 
 import {openBlock} from "./UI/toggleFunctions.js"
 import {closeBlock} from "./UI/toggleFunctions.js"
@@ -28,6 +33,12 @@ import { showClickedUserChat } from "./UI/printUsers.js"
 import { getOneUser } from "./services/getOneUser.js"
 import { printUserPicture } from "./UI/enteredUser.js"
 import { printUserName } from "./UI/enteredUser.js"
+import { searchMessages } from "./UI/searchMessage.js"
+import { editImage, editName } from "./UI/editUser.js";
+import { sendMessage } from "./UI/sendMessage.js";
+import { getMessages } from "./services/getMessages.js";
+import { printMessages } from "./UI/printMessages.js";
+import { showLogin } from './login.js';
 
 
 openBlock(openProfile, profile, conversations)
@@ -53,6 +64,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 searchFunction(searchConversation)
 
+searchMessages(searchMessageInput)
+
+editImage(formImage)
+editName(formName)
+
+formMessage.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    await sendMessage();
+    const idContact = localStorage.getItem('idContact');
+    const idLog = localStorage.getItem('userId');
+    const messages = await getMessages(URL_users, idLog, idContact);
+    printMessages(messages, messagesContainer);
+    //location.reload()
+})
 
 document.querySelector('.profileLogOut').addEventListener('click', () => {
     Swal.fire({
@@ -64,18 +89,17 @@ document.querySelector('.profileLogOut').addEventListener('click', () => {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        document.getElementById('main-page').style.display = 'none';
+        // document.getElementById('main-page').style.display = 'none';
         
-        document.getElementById('loginForm').style.display = 'block';
+        // document.getElementById('loginForm').style.display = 'block';
 
-        localStorage.removeItem('userId');        
+        localStorage.removeItem('userId');  
+        
+        showLogin();
       }
     });
   });
 
-// const login = document.querySelector('.login');
-// const register = document.querySelector('.register');
-// const mainPage = document.querySelector('.mainPage');
 
 const login = document.getElementById('login');
 const register = document.getElementById('register');
@@ -87,7 +111,23 @@ export const showMainPage = () => {
   localStorage.setItem('currentView', 'mainPage');
   login.classList.add('inactive');
   register.classList.add('inactive');
-  mainPage.classList.add('active');
-  location.reload()
+  mainPage.classList.remove('inactive');
 }
+//____________
+
+// const deleteOneMessage = Document.querySelector('.delete');
+// import { deleteMessage } from '../services/deleteMessage';
+
+// deleteOneMessage.addEventListener('click', async (e) => {
+//   e.preventDefault()
+
+//   /////No la he definido const idMessage = localStorage.getItem('idMessage');
+//   await deleteMessage(id);
+
+  
+//   // const idLog = localStorage.getItem('userId');
+//   // const messages = await getMessages(URL_users, idLog, idContact);
+//   // printMessages(messages, messagesContainer);
+//   //location.reload()
+// })
 
