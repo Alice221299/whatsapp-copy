@@ -45,7 +45,8 @@
         top: 11rem;
         align-items: center;
         @include mobile{
-            width: 300px;
+            width: 250px;
+            top: 7rem;
        }
         .inputBox {
             display: flex;
@@ -55,6 +56,9 @@
             font-size: 25px;
             align-self: flex-start;
             padding-left: 110px;
+            @include mobile{
+                padding-left: 10px;
+           }
         }
         .inputSpam{
             color: $primary-font;
@@ -84,10 +88,19 @@
             font-size: 1rem;
             margin-top: 1rem;
             font-size: 20px;
+            .btnSubmit:hover {
+                font-weight: bold;
+             }
         }
         .linkSingUp{
             color: $whatsapp-green;
             padding: 10px;
+            cursor: pointer;     
+            font-size: large;
+            margin: 15px;     
+        }
+        .linkSingUp:hover {
+            font-weight: bold;
         }
         .linkSingUp:hover {
             text-decoration: underline;

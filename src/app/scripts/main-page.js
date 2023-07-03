@@ -90,10 +90,7 @@ document.querySelector('.profileLogOut').addEventListener('click', () => {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        // document.getElementById('main-page').style.display = 'none';
-        
-        // document.getElementById('loginForm').style.display = 'block';
-
+     
         localStorage.removeItem('userId');  
         
         showLogin();
