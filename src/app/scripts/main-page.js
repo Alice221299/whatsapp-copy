@@ -15,6 +15,7 @@ import { printMessages } from "./UI/printMessages.js";
 import { postNewConversation } from "./UI/postNewConversation.js";
 import { editMessage } from "./UI/editMessage.js";
 import { showLogin } from './login.js';
+import Swal from 'sweetalert2'
 
 
 openBlock(openProfile, profile, conversations)
@@ -87,10 +88,7 @@ document.querySelector('.profileLogOut').addEventListener('click', () => {
       cancelButtonText: 'Cancel'
     }).then((result) => {
       if (result.isConfirmed) {
-        // document.getElementById('main-page').style.display = 'none';
-        
-        // document.getElementById('loginForm').style.display = 'block';
-
+     
         localStorage.removeItem('userId');  
         
         showLogin();
