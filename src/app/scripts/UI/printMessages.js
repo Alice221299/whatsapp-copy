@@ -21,7 +21,7 @@ export const printMessages = (array, container) => {
                         <textarea id="edit-message-input" cols="10" rows="5"></textarea>
                         <button type="submit">Submit</button>
                     </form>
-                    <p class="delete">Delete</p>
+                    <p class="delete" delete-id="${item.id}">Delete</p>
                 </div>
                 <p>${item.message}</p>
                 <div class="message-date-sent">

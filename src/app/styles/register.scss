@@ -104,4 +104,18 @@ main {
         font-size: 23px;
       }
   }
+  .linkLogIn{
+    color: $whatsapp-green;
+    padding: 10px;
+    cursor: pointer;     
+    font-size: large;
+    margin: 15px;     
+}
+.linkLogIn:hover {
+    font-weight: bold;
+}
+.linkLogIn:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 }

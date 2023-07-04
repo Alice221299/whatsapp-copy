@@ -62,7 +62,7 @@ const SignUpFormSubmit = async (event) => {
       phone: phoneNumber,
       password: password,
       profilePicture: pictureUrl,
-      flag: true,
+      online: false,
       about: about,
       lastTime: DateTime.now().toISO()
     });
@@ -84,6 +84,8 @@ const SignUpFormSubmit = async (event) => {
 }
 
 singUpForm.addEventListener('submit', SignUpFormSubmit);
+const linkLogIn = document.querySelector('.linkLogIn');
+linkLogIn.addEventListener('click', showLogin)
 
 const login = document.getElementById('login');
 const register = document.getElementById('register');

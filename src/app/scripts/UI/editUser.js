@@ -10,11 +10,9 @@ export const editImage = async (form) => {
             profilePicture: inputImage.value
         }
         patchUser(URL_users, userId, editedInfo)
-        
     });
     //location.reload()
   }
-
   export const editName = async (form) => {
     form.addEventListener("submit", async (e) => {
         e.preventDefault()
@@ -24,9 +22,6 @@ export const editImage = async (form) => {
             name: inputName.value
         }
         patchUser(URL_users, userId, editedInfo)
-        
     });
     //location.reload()
   }
-
-  

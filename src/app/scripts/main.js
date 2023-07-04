@@ -12,11 +12,8 @@ const mainPage = document.getElementById('mainPage');
 
 document.addEventListener('DOMContentLoaded', () => {
   const currentView = localStorage.getItem('currentView');
-  // const linkSingUp = document.querySelector('.linkSingUp');
-  // console.log(linkSingUp);
   if (!currentView) {
     login.classList.remove('inactive');
-  
   } else if (currentView === 'register') {
     register.classList.remove('inactive');
   } else if (currentView === 'mainPage') {
