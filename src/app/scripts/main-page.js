@@ -1,17 +1,17 @@
 let users = [];
-import { openProfile, profile, closeProfile, conversations, openSearch, search, closeSearch, changeImage, inputNewImage, changeName, inputNewName, URL_users, conversationsContainer, searchConversation, enteredUserFigure, enteredUserName, searchMessageInput, formImage, formName, formMessage, messagesContainer } from "./UI/data-variables.js";
+import { openProfile, profile, closeProfile, conversations, openSearch, search, closeSearch, changeImage, inputNewImage, changeName, inputNewName, URL_users, conversationsContainer, searchConversation, enteredUserFigure, enteredUserName, searchMessageInput, formImage, formName, formMessage, messagesContainer, containerDate } from "./UI/data-variables.js";
 
-import {openBlock, closeBlock, toggleMenu} from "./UI/toggleFunctions.js"
+import {openBlock, closeBlock} from "./UI/toggleFunctions.js"
 import { getUsers } from "./services/getUsers.js"
 import { printUsers, showClickedUserChat } from "./UI/printUsers.js"
 import { searchFunction } from "./UI/search.js"
 import { getOneUser } from "./services/getOneUser.js"
 import { printUserPicture, printUserName } from "./UI/enteredUser.js"
 import { searchMessages } from "./UI/searchMessage.js"
-import { editImage, editName } from "./UI/editUser.js";
+import { editImage, editName, editLastTime } from "./UI/editUser.js";
 import { sendMessage } from "./UI/sendMessage.js";
 import { getMessages } from "./services/getMessages.js";
-import { printMessages } from "./UI/printMessages.js";
+import { printMessages} from "./UI/printMessages.js";
 import { postNewConversation } from "./UI/postNewConversation.js";
 import { editMessage } from "./UI/editMessage.js";
 import { showLogin } from './login.js';
@@ -61,8 +61,8 @@ toggleMenuImage()
 
 formMessage.addEventListener('submit', async (e) => {
     e.preventDefault()
-    const idContact = localStorage.getItem('idContact');
-    const idLog = localStorage.getItem('userId');
+    const idContact = parseInt(localStorage.getItem('idContact'));
+    const idLog = parseInt(localStorage.getItem('userId'));
     const messages = await getMessages(URL_users, idLog, idContact);
     if (messages.length > 0) {
         await sendMessage();
@@ -85,8 +85,8 @@ document.addEventListener('click', async (e) => {
         event.preventDefault()
         const inputToEdit = inputEdit.querySelector('.inputToEdit')
         await editMessage(idMessage, inputToEdit)
-        const idContact = localStorage.getItem('idContact');
-        const idLog = localStorage.getItem('userId');
+        const idContact = parseInt(localStorage.getItem('idContact'));
+        const idLog = parseInt(localStorage.getItem('userId'));
         const messages = await getMessages(URL_users, idLog, idContact);
         printMessages(messages, messagesContainer);
     })
@@ -101,11 +101,12 @@ document.querySelector('.profileLogOut').addEventListener('click', () => {
       showCancelButton: true,
       confirmButtonText: 'Yes',
       cancelButtonText: 'Cancel'
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
      
-        localStorage.removeItem('userId');  
-        
+        await editLastTime()
+        localStorage.removeItem('userId'); 
+        location.reload() 
         showLogin();
       }
     });

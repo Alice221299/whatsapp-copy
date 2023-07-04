@@ -230,12 +230,23 @@ main {
             padding: 20px 0;
             color: $primary-font;
             overflow-y: scroll;
-            .message-date {
+            .date-container{
+                align-self: center;
+                .message-date {
                 background-color: #E4F2FB;
                 align-self: center;
-                padding: 10px;
+                padding: 10px 20px;
                 border-radius: 5px;
+                width: fit-content;
             }
+            }
+            .messages-chat--container {
+                width: 100%;
+            height: calc(100vh - 160px);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            color: $primary-font;
             .message-received {
                 background-color: white;
                 border-top-left-radius: 0;
@@ -267,6 +278,7 @@ main {
                     align-self: flex-end;
                 }
             }
+        }
         }
         footer {
             @include bar();

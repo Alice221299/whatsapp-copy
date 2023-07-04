@@ -3,7 +3,7 @@ import { patchMessage } from "../services/patchMessage.js";
 import { URL_users } from "./data-variables.js";
 
 export const editMessage = async (idMessage, input) => {
-    const idContact = localStorage.getItem('idContact');
+    const idContact = parseInt(localStorage.getItem('idContact'));
     const idLog = parseInt(localStorage.getItem('userId'));
     const messageListArray = await getMessages(URL_users, idLog, idContact);
     
@@ -11,6 +11,7 @@ export const editMessage = async (idMessage, input) => {
         console.log(messageList);
         const messageToEdit = messageList.find(mes => mes.id == idMessage)
         console.log(messageToEdit);
+        //input.value = messageToEdit.message
         const idConversation = messageListArray[0].id
         const url_messages = `${URL_users}conversations/${idConversation}`
     
@@ -20,6 +21,7 @@ export const editMessage = async (idMessage, input) => {
           idSender: idLog,
           idReceiver: idContact,
           id: idConversation,
+          lastMessage: messageListArray[0].lastMessage,
           messages: messageList,
         };
     

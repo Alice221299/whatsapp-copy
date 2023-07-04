@@ -1,9 +1,11 @@
 import { DateTime } from "luxon";
+import { containerDate } from "./data-variables.js";
 
 export const printMessages = (array, container) => {
     if (array.length > 0) {
     container.innerHTML = '';
     array[0].messages.forEach((item) => {
+        const formattedTime = DateTime.fromISO(item.time).toRelative();
         if (array[0].idSender === item.sentBy) {
         container.innerHTML += `
         <div class="message-sent">
@@ -25,7 +27,7 @@ export const printMessages = (array, container) => {
                 </div>
                 <p>${item.message}</p>
                 <div class="message-date-sent">
-                    <span>${item.time}</span>
+                    <span>${formattedTime}</span>
                     <svg fill="${item.flag ? '#2EA3F2' : '#A8A8A8'}" width="15px" height="15px" viewBox="0 0 24 24" id="check-double" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><line id="primary" x1="13.22" y1="16.5" x2="21" y2="7.5" style="fill: none; stroke: ${item.flag ? '#2EA3F2' : '#A8A8A8'}; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><polyline id="primary-2" data-name="primary" points="3 11.88 7 16.5 14.78 7.5" style="fill: none; stroke: ${item.flag ? '#2EA3F2' : '#A8A8A8'}; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline></g></svg>
             </div>
         `  }
@@ -49,7 +51,7 @@ export const printMessages = (array, container) => {
                 <p class="delete">Delete</p>
             </div>
             <p>${item.message}</p>
-            <span>${item.time}</span>
+            <span>${formattedTime}</span>
         </div>
             `
         }
@@ -64,6 +66,7 @@ else {
     </div>
     `
 }
+printDate(array, containerDate)
 }
 
 
@@ -75,4 +78,14 @@ const openOptions = () => {
             actions.classList.toggle("inactive");
         }
     })
+}
+
+export const printDate = (array, container) => {
+    if (array.length > 0) {
+        container.innerHTML = `
+        <p class="message-date">Hoy</p>`
+    }
+    else {
+        container.innerHTML = '';
+    }
 }

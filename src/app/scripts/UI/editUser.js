@@ -1,4 +1,5 @@
 import { patchUser } from "../services/patchUser.js";
+import { DateTime } from "luxon";
 const URL_users = "https://back-whatsapp.onrender.com/users";
 
 export const editImage = async (form) => {
@@ -27,3 +28,10 @@ export const editImage = async (form) => {
     });
   }
 
+  export const editLastTime = async () => {
+        const userId = localStorage.getItem('userId');
+        let editedInfo = {
+            lastTime: DateTime.now().toISO(),
+        }
+        await patchUser(URL_users, userId, editedInfo)
+  }

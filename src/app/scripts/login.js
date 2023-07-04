@@ -40,7 +40,7 @@ const loginFormSubmit = async (event) => {
     const userId = user.id;
     // const userOnline =user.online;
     localStorage.setItem('userId', userId);
-    
+    location.reload()
     showMainPage();
     //colocar el parch
   });
