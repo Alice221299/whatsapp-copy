@@ -33,7 +33,7 @@ const loginFormSubmit = async (event) => {
     const userOnline = user.online;
     console.log(userOnline);
     localStorage.setItem('userId', userId);
-    localStorage.setItem('userOnline', userOnline);
+    localStorage.setItem('userOnline', userOnline);location.reload()
     showMainPage();
   });
 };

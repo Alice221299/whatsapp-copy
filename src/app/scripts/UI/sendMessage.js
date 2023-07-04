@@ -6,7 +6,7 @@ import { URL_users } from "./data-variables.js";
 export const sendMessage = async () => {
     const messageInput = document.getElementById('message-input')
 
-    const idContact = localStorage.getItem('idContact');
+    const idContact = parseInt(localStorage.getItem('idContact'));
     const idLog = parseInt(localStorage.getItem('userId'));
     const messageListArray = await getMessages(URL_users, idLog, idContact);
     const messageList = messageListArray[0].messages
@@ -18,7 +18,7 @@ export const sendMessage = async () => {
     const newMessage = {
       id: idMessage,
       sentBy: idLog,
-      time: DateTime.now(),
+      time: DateTime.now().toISO(),
       message: messageInput.value,
       flag: false,
     };
@@ -27,6 +27,7 @@ export const sendMessage = async () => {
       idSender: idLog,
       idReceiver: idContact,
       id: idConversation,
+      lastMessage: DateTime.now().toISO(),
       messages: messageList,
     };
 

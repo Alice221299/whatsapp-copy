@@ -82,3 +82,28 @@
         -12px -12px 15px #ffffff;
     }
 }
+
+@mixin options {
+    border: none;
+    z-index: 20;
+    .edit {
+        background-color: $whatsapp-green;
+        border: none;
+        color: white;
+    }
+    .delete {
+        background-color: red;
+        border: none;
+        color: white;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        button {
+            color: white;
+            background-color: $whatsapp-green;
+            padding: 5px;
+            border: none;
+        }
+    }
+}
