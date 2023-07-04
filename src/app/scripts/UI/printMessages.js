@@ -18,7 +18,7 @@ export const printMessages = (array, container) => {
                 <div class="options-container inactive message--${item.id}">
                     <p class="edit" edit-id="${item.id}">Edit</p>
                     <form class="inactive edit-${item.id}">
-                        <textarea id="edit-message-input" cols="10" rows="5"></textarea>
+                        <textarea class="inputToEdit" cols="10" rows="5"></textarea>
                         <button type="submit">Submit</button>
                     </form>
                     <p class="delete">Delete</p>
@@ -43,7 +43,7 @@ export const printMessages = (array, container) => {
             <div class="options-container inactive message--${item.id}">
                 <p class="edit" edit-id="${item.id}">Edit</p>
                 <form class="inactive edit-${item.id}">
-                    <textarea id="edit-message-input" cols="10" rows="5" ></textarea>
+                    <textarea class="inputToEdit" cols="10" rows="5" ></textarea>
                     <button type="submit">Submit</button>
                 </form>
                 <p class="delete">Delete</p>

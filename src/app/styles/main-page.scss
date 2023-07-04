@@ -246,17 +246,7 @@ main {
                 }
                 .options-container {
                     right: -85px;
-                    z-index: 20;
-                    form {
-                        display: flex;
-                        flex-direction: column;
-                        button {
-                            color: white;
-                            background-color: $whatsapp-green;
-                            border-radius: 5px;
-                            padding: 5px;
-                        }
-                    }
+                    @include options();
                 }
             }
             .message-sent {
@@ -270,17 +260,7 @@ main {
                 }
                 .options-container {
                     right: 15px;
-                    z-index: 20;
-                    form {
-                        display: flex;
-                        flex-direction: column;
-                        button {
-                            color: white;
-                            background-color: $whatsapp-green;
-                            border-radius: 5px;
-                            padding: 5px;
-                        }
-                    }
+                    @include options();
                 }
                 .message-date-sent {
                     display: flex;

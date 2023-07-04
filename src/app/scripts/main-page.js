@@ -24,9 +24,6 @@ closeBlock(closeProfile, profile, conversations)
 openBlock(openSearch, search)
 closeBlock(closeSearch, search)
 
-toggleMenu(changeImage, inputNewImage)
-
-toggleMenu(changeName, inputNewName)
 
 document.addEventListener("DOMContentLoaded", async () => {
     users = await getUsers(URL_users);
@@ -45,8 +42,22 @@ searchFunction(searchConversation)
 
 searchMessages(searchMessageInput)
 
-editImage(formImage)
-editName(formName)
+const toggleMenuImage =  () => {
+  changeImage.addEventListener('click',async () => {
+    inputNewImage.classList.toggle('inactive');
+    await editImage(formImage)
+    
+})
+}
+const toggleMenuName = () => {
+  changeName.addEventListener('click',async () => {
+    inputNewName.classList.toggle('inactive');
+    await editName(formName)
+    
+})
+}
+toggleMenuName()
+toggleMenuImage()
 
 formMessage.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -67,17 +78,19 @@ formMessage.addEventListener('submit', async (e) => {
 document.addEventListener('click', async (e) => {
     if (e.target.classList.contains("edit")) {
     const idMessage = e.target.getAttribute("edit-id");
+    console.log("idMessage",idMessage);
     const inputEdit = document.querySelector(`.edit-${idMessage}`);
     inputEdit.classList.toggle('inactive');
     inputEdit.addEventListener('submit', async (event)=> {
         event.preventDefault()
-        await editMessage(idMessage)
+        const inputToEdit = inputEdit.querySelector('.inputToEdit')
+        await editMessage(idMessage, inputToEdit)
         const idContact = localStorage.getItem('idContact');
         const idLog = localStorage.getItem('userId');
         const messages = await getMessages(URL_users, idLog, idContact);
         printMessages(messages, messagesContainer);
     })
-    }})
+}})
 
 
 document.querySelector('.profileLogOut').addEventListener('click', () => {

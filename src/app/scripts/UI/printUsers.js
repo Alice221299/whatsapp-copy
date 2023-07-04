@@ -1,7 +1,7 @@
 import { getMessages } from "../services/getMessages.js";
 import { printMessages } from "./printMessages.js";
 import { getOneUser } from "../services/getOneUser.js";
-import { URL_users, messagesContainer, chosenUserInfoContainer } from "./data-variables.js";
+import { URL_users, messagesContainer, chosenUserInfoContainer, chosenUserName } from "./data-variables.js";
 
 export const printUsers = (array, container) => {
     container.innerHTML = '';
@@ -34,8 +34,8 @@ export const showClickedUserChat = () => {
             console.log("Messages:", messages);
             printMessages(messages, messagesContainer);
             const chosenUser = await getOneUser(URL_users, idContact);
-            console.log(chosenUser);
-            printChosenUserInfo(chosenUser, chosenUserInfoContainer)
+            printChosenUserInfo(chosenUser, chosenUserInfoContainer);
+            printName(chosenUser, chosenUserName)
         }
     })
 }
@@ -50,5 +50,11 @@ export const printChosenUserInfo = (user, container) => {
         <h3>${user.name}</h3>
         <p>${user.online ? 'EN LINEA' : 'DESCONECTADO'}</p>
     </div>
+    `
+}
+const printName = (user, container) => {
+    container.innerHTML = '';
+    container.innerHTML += `
+    <p>Mensajes con ${user.name}</p>
     `
 }

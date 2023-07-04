@@ -21,3 +21,4 @@ export const formMessage = document.querySelector('.write-message');
 export const messagesContainer = document.querySelector('.messages-chat');
 export const chosenUserInfoContainer = document.querySelector('.messages-header-info');
 export const searcMessagesContainer = document.querySelector('.chosen-message');
+export const chosenUserName = document.getElementById('chosen-user-name')

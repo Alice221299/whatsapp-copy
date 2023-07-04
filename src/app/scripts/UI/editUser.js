@@ -9,10 +9,9 @@ export const editImage = async (form) => {
         let editedInfo = {
             profilePicture: inputImage.value
         }
-        patchUser(URL_users, userId, editedInfo)
-        
+        await patchUser(URL_users, userId, editedInfo)
+        location.reload()
     });
-    //location.reload()
   }
 
   export const editName = async (form) => {
@@ -23,10 +22,8 @@ export const editImage = async (form) => {
         let editedInfo = {
             name: inputName.value
         }
-        patchUser(URL_users, userId, editedInfo)
-        
+        await patchUser(URL_users, userId, editedInfo)
+        location.reload()
     });
-    //location.reload()
   }
 
-  
