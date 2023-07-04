@@ -1,5 +1,7 @@
 import { getUsers } from './services/getUsers.js';
-//import { URL_users } from './services/data.js'
+import Swal from 'sweetalert2'
+import { showMainPage } from './main-page.js';
+import { showRegister } from './register.js';
 
 const URL_users = "https://back-whatsapp.onrender.com/";
 const formLogin = document.getElementById('loginForm');
@@ -10,8 +12,12 @@ const loginFormSubmit = async (event) => {
   const phoneNumber = document.getElementById('loginUserPhone').value;
   const password = document.getElementById('loginPassword').value;
 
-  if (!phoneNumber || !password) {
-    Swal.fire('Error', 'Por favor, completa todos los campos.', 'error');
+  if (!phoneNumber) {
+    Swal.fire('Error', 'Por favor, colocar el número de teléfono', 'error');
+    return;
+  }
+  if (!password) {
+    Swal.fire('Error', 'Por favor, colocar la contraseña', 'error');
     return;
   }
 
@@ -20,7 +26,7 @@ const loginFormSubmit = async (event) => {
   const user = users.find((user) => user.phone == phoneNumber);
 
   if (!user) {
-    Swal.fire('Error', 'El número ingresado no existe.', 'error');
+    Swal.fire('Error', 'El usuario ingresado no existe.', 'error');
     return;
   }
 
@@ -30,22 +36,28 @@ const loginFormSubmit = async (event) => {
   }
 
   Swal.fire('Bienvenido', `Bienvenido ${user.name}`, 'success').then(() => {
- 
-    document.getElementById('main-page').style.display = 'block';
-
-    document.getElementById('loginForm').style.display = 'none';
-
+  
     const userId = user.id;
+    // const userOnline =user.online;
     localStorage.setItem('userId', userId);
+    location.reload()
+    showMainPage();
+    //colocar el parch
   });
 };
 
 formLogin.addEventListener('submit', loginFormSubmit);
 
+const linkSingUp = document.querySelector('.linkSingUp');
+linkSingUp.addEventListener('click', showRegister)
 
+const login = document.getElementById('login');
+const register = document.getElementById('register');
+const mainPage = document.getElementById('mainPage');
 
-const userId = localStorage.getItem('userId');
-const userConversations = db.conversations.filter(
-  (conversation) =>
-    conversation.idUser1 == userId 
-);
+export const showLogin = () => {
+  localStorage.removeItem('currentView');
+  login.classList.remove('inactive');
+  register.classList.add('inactive');
+  mainPage.classList.add('inactive');
+}

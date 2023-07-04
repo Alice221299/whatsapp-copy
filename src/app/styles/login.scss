@@ -3,70 +3,108 @@
 @import './mixins.scss';
 @import './reset.scss';
 
-body {
-    font-family: 'Roboto', sans-serif;
-    position: relative;
-}
-header{
-    height: 800px;
-}
-.navLogo{
-    background-color: $whatsapp-green;
-    height: 800px;
-    display: flex; 
-    padding: 10px;
-    gap: 10px;
-    .navLogo__WA {
-       color: white;
+
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        position: relative;
     }
-}
-.mainSection{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 3rem 3rem 3rem;
-    .linkSingUp{
-        color: $whatsapp-green;
+    main{
+        display: flex;
+        justify-content: center;
+    
+    }
+    .navLogo{
+        display: flex;
+        background-color: $whatsapp-green;
+        height: 300px;
+        display: flex; 
         padding: 10px;
+        gap: 10px;
+        align-items: baseline;
+        .navLogo__WA {
+           color: white;
+           font-size: 40px;
+        }
     }
-}
-#loginForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: $background-grey;
-    padding: 30px;
-    border-radius: 20px;
-    width: 700px;
-    position: absolute;
-    top: 5rem;
-    .inputBox {
+    .mainSection{
         display: flex;
         flex-direction: column;
-        margin: 10px;  
+        align-items: center;
+        margin: 0 3rem 3rem 3rem;
+        
     }
-    .inputSpam{
-        color: $primary-font;
+    #loginForm{
+        display: flex;
+        flex-direction: column;
+        background-color: $background-grey;
+        padding: 30px;
+        border-radius: 20px;
+        width: 700px;
+        position: absolute;
+        top: 11rem;
+        align-items: center;
+        @include mobile{
+            width: 250px;
+            top: 7rem;
+       }
+        .inputBox {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;  
+            color: $primary-font;
+            font-size: 25px;
+            align-self: flex-start;
+            padding-left: 110px;
+            @include mobile{
+                padding-left: 10px;
+           }
+        }
+        .inputSpam{
+            color: $primary-font;
+            font-size: 25px;
+        }
+        .input{
+            width: 400px;
+            border: none;
+            outline: none;
+            padding: 20px;
+            margin-top: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            @include mobile{
+                width: 150px;
+           }
+        }
+        .btnSubmit{
+            background-color: $whatsapp-green;
+            border: none;
+            max-width: 200px;
+            align-self: center;
+            padding: 7px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 1rem;
+            margin-top: 1rem;
+            font-size: 20px;
+            .btnSubmit:hover {
+                font-weight: bold;
+             }
+        }
+        .linkSingUp{
+            color: $whatsapp-green;
+            padding: 10px;
+            cursor: pointer;     
+            font-size: large;
+            margin: 15px;     
+        }
+        .linkSingUp:hover {
+            font-weight: bold;
+        }
+        .linkSingUp:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
-    .input{
-        border: none;
-        outline: none;
-        padding: 5px;
-        margin-top: 5px;
-        border-radius: 5px;
-    }
-    .btnSubmit{
-        background-color: $whatsapp-green;
-        border: none;
-        max-width: 200px;
-        align-self: center;
-        padding: 7px 15px;
-        border-radius: 10px;
-        cursor: pointer;
-        color: white;
-        font-size: 1rem;
-    }
-    @include mobile{
-        max-width: 500px;
-    }
-}
+    

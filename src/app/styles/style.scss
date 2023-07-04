@@ -6,10 +6,11 @@
 @import './register.scss';
 @import './main-page.scss';
 
-#login {
+.inactive {
     display: none;
 }
 
-#register {
-    display: none;
+.active {
+    display: block;
 }
+
