@@ -11,10 +11,10 @@ const checkPhoneNumber = async (phoneNumber) => {
     const users = response.data;
     for (let i = 0; i < users.length; i++) {
       if (users[i].phone === phoneNumber) {
-        return users[i]; // Devuelve los datos del usuario si el número de teléfono ya está registrado
+        return users[i]; 
       }
     }
-    return null; // Devuelve null si el número de teléfono no está registrado
+    return null; 
   } catch (error) {
     console.log(error);
     throw error;
