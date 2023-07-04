@@ -2,7 +2,6 @@ import { getUsers } from './services/getUsers.js';
 import Swal from 'sweetalert2'
 import { showMainPage } from './main-page.js';
 import { showRegister } from './register.js';
-//import { URL_users } from './services/data.js'
 
 const URL_users = "https://back-whatsapp.onrender.com/";
 const formLogin = document.getElementById('loginForm');
@@ -13,8 +12,12 @@ const loginFormSubmit = async (event) => {
   const phoneNumber = document.getElementById('loginUserPhone').value;
   const password = document.getElementById('loginPassword').value;
 
-  if (!phoneNumber || !password) {
-    Swal.fire('Error', 'Por favor, completa todos los campos.', 'error');
+  if (!phoneNumber) {
+    Swal.fire('Error', 'Por favor, colocar el número de teléfono', 'error');
+    return;
+  }
+  if (!password) {
+    Swal.fire('Error', 'Por favor, colocar la contraseña', 'error');
     return;
   }
 
@@ -23,7 +26,7 @@ const loginFormSubmit = async (event) => {
   const user = users.find((user) => user.phone == phoneNumber);
 
   if (!user) {
-    Swal.fire('Error', 'El número ingresado no existe.', 'error');
+    Swal.fire('Error', 'El usuario ingresado no existe.', 'error');
     return;
   }
 
@@ -33,11 +36,11 @@ const loginFormSubmit = async (event) => {
   }
 
   Swal.fire('Bienvenido', `Bienvenido ${user.name}`, 'success').then(() => {
-    // document.getElementById('main-page').style.display = 'block';
-    // document.getElementById('login').style.display = 'none';
+  
     const userId = user.id;
+    // const userOnline =user.online;
     localStorage.setItem('userId', userId);
-    // localStorage.setItem('currentView', 'login');
+    
     showMainPage();
     //colocar el parch
   });
@@ -45,14 +48,7 @@ const loginFormSubmit = async (event) => {
 
 formLogin.addEventListener('submit', loginFormSubmit);
 
-// const linkSingUp = document.querySelector('.linkSingUp');
-
-// export const goToRegister = () => {
-//   linkSingUp.addEventListener('click', showRegister);
-// }
-
 const linkSingUp = document.querySelector('.linkSingUp');
-console.log(linkSingUp);
 linkSingUp.addEventListener('click', showRegister)
 
 const login = document.getElementById('login');
@@ -61,11 +57,7 @@ const mainPage = document.getElementById('mainPage');
 
 export const showLogin = () => {
   localStorage.removeItem('currentView');
-  //localStorage.removeItem('currentView', 'register');
-  //localStorage.removeItem('currentView', 'mainPage');
   login.classList.remove('inactive');
   register.classList.add('inactive');
   mainPage.classList.add('inactive');
 }
-
-
