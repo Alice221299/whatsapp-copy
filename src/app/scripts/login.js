@@ -11,11 +11,11 @@ const loginFormSubmit = async (event) => {
   const phoneNumber = document.getElementById('loginUserPhone').value;
   const password = document.getElementById('loginPassword').value;
   if (!phoneNumber) {
-    Swal.fire('Error', 'Por favor, colocar el número de teléfono', 'error');
+    Swal.fire('Error', 'Por favor, coloca el número de teléfono', 'error');
     return;
   }
   if (!password) {
-    Swal.fire('Error', 'Por favor, colocar la contraseña', 'error');
+    Swal.fire('Error', 'Por favor, coloca la contraseña', 'error');
     return;
   }
   const users = await getUsers(URL_users);

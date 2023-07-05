@@ -8,7 +8,7 @@ export const getMessages = async (url, idLog, idContact) => {
     const response1 = await axios.get(urlMessages1);
     const response2 = await axios.get(urlMessages2);
 
-    return response1.data.length > 0 ? response1.data : response2.data; //Les va a retornar un array con un elemento.
+    return response1.data.length > 0 ? response1.data : response2.data; 
   } catch (error) {
     console.log(error);
   }

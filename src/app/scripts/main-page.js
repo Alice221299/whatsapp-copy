@@ -17,6 +17,7 @@ import { editMessage } from "./UI/editMessage.js";
 import { showLogin } from "./login.js";
 import Swal from "sweetalert2";
 import { patchOnline } from "./services/patchOnline.js";
+import { deleteMessage } from "./UI/deleteOneMessage.js";
 
 openBlock(openProfile, profile, conversations);
 closeBlock(closeProfile, profile, conversations);
@@ -114,8 +115,8 @@ document.addEventListener("click", async (e) => {
   else if (e.target.classList.contains("delete")) {
     const idMessage = e.target.getAttribute("delete-id");
     Swal.fire({
-      title: "Está seguro?",
-      text: "Usted no va a poder revertir esto!",
+      title: "¿Estás seguro de que quiere eliminar el mensaje?",
+      text: "No vas a poder revertir esto!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -129,8 +130,8 @@ document.addEventListener("click", async (e) => {
         const messages = await getMessages(URL_users, idLog, idContact);
         printMessages(messages, messagesContainer);
         Swal.fire(
-          "Deleted!",
-          "Su mensaje se ha eliminado correctamente",
+          "Eliminado!",
+          "El mensaje se ha eliminado correctamente",
           "success"
         );
       }
@@ -138,15 +139,14 @@ document.addEventListener("click", async (e) => {
     }
   })
 
-
   document.querySelector('.profileLogOut').addEventListener('click', () => {
     Swal.fire({
-      title: 'Log Out',
-      text: 'Are you sure you want to sign out?',
+      title: 'Cerrar sesión',
+      text: '¿Estás seguro de que quieres cerrar sesión?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'Cancel'
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'Cancelar'
     }).then(async (result) => {
       if (result.isConfirmed) {
      
