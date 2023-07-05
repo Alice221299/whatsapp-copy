@@ -1,5 +1,5 @@
 let users = [];
-import { openProfile, profile, closeProfile, conversations, openSearch, search, closeSearch, changeImage, inputNewImage, changeName, inputNewName, URL_users, conversationsContainer, searchConversation, enteredUserFigure, enteredUserName, searchMessageInput, formImage, formName, formMessage, messagesContainer, containerDate } from "./UI/data-variables.js";
+import { openProfile, profile, closeProfile, conversations, openSearch, search, closeSearch, changeImage, inputNewImage, changeName, inputNewName, URL_users, conversationsContainer, searchConversation, enteredUserFigure, enteredUserName, searchMessageInput, formImage, formName, formMessage, messagesContainer} from "./UI/data-variables.js";
 
 import {openBlock, closeBlock} from "./UI/toggleFunctions.js"
 import { getUsers } from "./services/getUsers.js"
@@ -17,21 +17,13 @@ import { editMessage } from "./UI/editMessage.js";
 import { showLogin } from "./login.js";
 import Swal from "sweetalert2";
 import { patchOnline } from "./services/patchOnline.js";
+import { deleteMessage } from "./UI/deleteOneMessage.js";
 
 openBlock(openProfile, profile, conversations);
 closeBlock(closeProfile, profile, conversations);
 
 openBlock(openSearch, search);
 closeBlock(closeSearch, search);
-
-toggleMenu(changeImage, inputNewImage);
-
-
-openBlock(openProfile, profile, conversations)
-closeBlock(closeProfile, profile, conversations)
-
-openBlock(openSearch, search)
-closeBlock(closeSearch, search)
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -57,9 +49,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 searchFunction(searchConversation);
 
 searchMessages(searchMessageInput);
-
-editImage(formImage);
-editName(formName);
 
 const toggleMenuImage =  () => {
   changeImage.addEventListener('click',async () => {

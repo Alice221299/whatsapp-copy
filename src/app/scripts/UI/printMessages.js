@@ -57,7 +57,7 @@ export const printMessages = (array, container) => {
         }
     })
 
-openOptions()
+openOptions(container)
     }
 else {
     container.innerHTML = `
@@ -70,9 +70,9 @@ printDate(array, containerDate)
 }
 
 
-const openOptions = () => {
-    document.addEventListener("click", (event) => {
-        if (event.target.classList.contains("message-options")) {
+const openOptions = (container) => {
+    container.addEventListener("click", (event) => {
+        if (event.target.matches(".message-options")) {
             const idMessage = event.target.getAttribute("data-id");
             const actions = document.querySelector(`.message--${idMessage}`);
             actions.classList.toggle("inactive");

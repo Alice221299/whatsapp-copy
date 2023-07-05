@@ -45,13 +45,13 @@ export const deleteMessage = async (idMessage) => {
         const messageToDetele = idMessage - 1
         const idConversation = messageListArray[0].id
         const url_messages = `${URL_users}conversations/${idConversation}`
-        const spliceArray = messageList.splice(messageToDetele, 1)
+        const splicedEl = messageList.splice(messageToDetele, 1)
   
         const payload = {
           idSender: idLog,
           idReceiver: idContact,
           id: idConversation,
-          messages: spliceArray,
+          messages: messageList,
         };
     
         await patchMessage(url_messages, payload)

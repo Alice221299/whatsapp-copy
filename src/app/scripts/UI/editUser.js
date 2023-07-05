@@ -10,12 +10,8 @@ export const editImage = async (form) => {
         let editedInfo = {
             profilePicture: inputImage.value
         }
-<<<<<<< HEAD
-        patchUser(URL_users, userId, editedInfo)
-=======
         await patchUser(URL_users, userId, editedInfo)
         location.reload()
->>>>>>> c1ccb17fc9b9c44a51f385887e5e1c05e8b7f448
     });
   }
   export const editName = async (form) => {
@@ -26,11 +22,6 @@ export const editImage = async (form) => {
         let editedInfo = {
             name: inputName.value
         }
-<<<<<<< HEAD
-        patchUser(URL_users, userId, editedInfo)
-    });
-    //location.reload()
-=======
         await patchUser(URL_users, userId, editedInfo)
         location.reload()
     });
@@ -42,5 +33,4 @@ export const editImage = async (form) => {
             lastTime: DateTime.now().toISO(),
         }
         await patchUser(URL_users, userId, editedInfo)
->>>>>>> c1ccb17fc9b9c44a51f385887e5e1c05e8b7f448
   }
