@@ -118,7 +118,7 @@ document.addEventListener("click", async (e) => {
         const messages = await getMessages(URL_users, idLog, idContact);
         printMessages(messages, messagesContainer);
         Swal.fire(
-          "Deleted!",
+          "Eliminado",
           "Su mensaje se ha eliminado correctamente",
           "success"
         );
@@ -128,20 +128,26 @@ document.addEventListener("click", async (e) => {
   })
 
 
-  document.querySelector('.profileLogOut').addEventListener('click', () => {
+  document.querySelector('.profileLogOut').addEventListener('click', async () => {
+    const userOnline = localStorage.getItem('userOnline');
+    const userId = localStorage.getItem("userId");
     Swal.fire({
-      title: 'Log Out',
-      text: 'Are you sure you want to sign out?',
+      title: 'Cerrar sesión',
+      text: '¿Estás segure de que quieres cerrar sesión?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'Cancel'
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'Cancelar'
     }).then(async (result) => {
       if (result.isConfirmed) {
-     
-        await editLastTime()
+        await editLastTime();
         localStorage.removeItem('userId'); 
-        location.reload() 
+        localStorage.removeItem('idContact');
+        // location.reload(); 
+        if (userOnline !== "false") {
+          await patchOnline(URL_users, userId, { online: false });
+          localStorage.removeItem('userOnline');
+        }
         showLogin();
       }
     });
